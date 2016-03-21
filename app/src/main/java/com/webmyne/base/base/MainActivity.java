@@ -52,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setSubtitle("CHHOTA UDEPUR");
         getSupportActionBar().setTitle("NAGAR SEVA SADAN");
 
+
         menu.add("ABOUT US");
         menu.add("MANAGEMENT");
         menu.add("COMPLAINS");
