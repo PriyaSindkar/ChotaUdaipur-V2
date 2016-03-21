@@ -9,5 +9,4 @@
     android:lines="1"
     android:padding="5dip"
     android:text="kdnfdfn"
-    android:textColor="#000"
-    android:textSize="@dimen/activity_vertical_margin" />
+    android:textColor="#000" />

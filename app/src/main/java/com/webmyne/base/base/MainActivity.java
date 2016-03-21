@@ -14,6 +14,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.webmyne.R;
+import com.webmyne.base.AboutUs.About_UsActivity;
+import com.webmyne.base.Achievement.Achievement_Activity;
+import com.webmyne.base.Complain.ComplainRegisterActivity;
+import com.webmyne.base.Complain.Complaint_statusActivity;
+import com.webmyne.base.HelpLine.HelpLineActivity;
 import com.webmyne.base.base.adapter.MyRecyclerViewAdapter;
 import com.webmyne.base.current_jobs.CurrentJobsActivity;
 import com.webmyne.base.listeners.OnItemSelected;
@@ -98,6 +103,18 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(intent);
                 } else if(itemName.equalsIgnoreCase("TOURIST SPOTS")) {
                     Intent intent = new Intent(MainActivity.this, TouristSpotsActivity.class);
+                    startActivity(intent);
+                } else if(itemName.equalsIgnoreCase("ABOUT US")) {
+                    Intent intent = new Intent(MainActivity.this, About_UsActivity.class);
+                    startActivity(intent);
+                }  else if(itemName.equalsIgnoreCase("COMPLAINS")) {
+                    Intent intent = new Intent(MainActivity.this, Complaint_statusActivity.class);
+                    startActivity(intent);
+                } else if(itemName.equalsIgnoreCase("ACHIVEMENTS")) {
+                    Intent intent = new Intent(MainActivity.this, Achievement_Activity.class);
+                    startActivity(intent);
+                } else if(itemName.equalsIgnoreCase("HELPLINES")) {
+                    Intent intent = new Intent(MainActivity.this, HelpLineActivity.class);
                     startActivity(intent);
                 }
             }

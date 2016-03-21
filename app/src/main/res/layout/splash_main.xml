@@ -9,11 +9,8 @@
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
         android:background="@drawable/splash_screen"
-        android:scaleType="centerCrop" />
+        android:scaleType="centerInside" />
 
     <ProgressBar
         android:id="@+id/progressBar"

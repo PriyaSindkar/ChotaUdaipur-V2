@@ -31,6 +31,7 @@
         <item name="android:layout_marginTop">@dimen/std_margin</item>
         <item name="android:background">@drawable/edittext</item>
         <item name="android:ems">10</item>
+        <item name="android:textSize">@dimen/small_text</item>
         <item name="android:padding">@dimen/std_margin</item>
         <item name="android:textColor">@color/black</item>
         <item name="android:textColorHint">@color/black</item>
@@ -39,6 +40,7 @@
     </style>
 
     <style name="SpinnerStyle">
+        <item name="android:textSize">@dimen/small_text</item>
         <item name="android:layout_marginLeft">@dimen/std1_margin</item>
         <item name="android:layout_marginRight">@dimen/std1_margin</item>
         <item name="android:layout_marginTop">@dimen/std_margin</item>

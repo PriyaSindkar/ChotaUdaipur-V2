@@ -20,4 +20,6 @@
 
     <color name="SubTitle">#FFA726</color>
     <color name="gray">@android:color/darker_gray</color>
+    <color name="btn_light_color">#eaeaea</color>
+
 </resources>

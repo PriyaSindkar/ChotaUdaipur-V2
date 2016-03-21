@@ -1,12 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient_radial_bg"
+    android:background="@drawable/gradient_bg_mirror"
     android:orientation="vertical">
 
-    <include layout="@layout/appbar" />
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true" />
+
+    <include
+        android:id="@+id/footer"
+        layout="@layout/footer_back"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/footer"
+        android:layout_below="@id/toolbar"
+        android:layout_marginBottom="@dimen/v_small_margin"
+        android:orientation="vertical">
 
         <TextView
             android:layout_width="match_parent"
@@ -18,7 +39,7 @@
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="1dp"
+            android:layout_height="1.5dp"
             android:background="@drawable/line" />
 
         <ImageView
@@ -31,11 +52,9 @@
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"
-            android:background="@drawable/gradient_gb">
+            android:layout_weight="1">
 
-            <com.webmyne.base.ui.JustifiedTextView
-                xmlns:noghteh="http://noghteh.ir"
+            <com.webmyne.base.ui.JustifiedTextView xmlns:noghteh="http://noghteh.ir"
                 android:id="@+id/activity_main_jtv"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -45,18 +64,7 @@
 
             </com.webmyne.base.ui.JustifiedTextView>
         </ScrollView>
-
-        <!-- <TextView
-              android:id="@+id/txtAboutUs"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:gravity="center_horizontal|right|left|fill_horizontal"
-              android:layout_gravity="center_vertical|right"
-              android:layout_margin="@dimen/medium_text"
-              android:text="ABOUT CHHOTA UDEPUR"
-              android:textSize="10sp"
-              android:textColor="@color/colorPrimary" />-->
+    </LinearLayout>
 
 
-
-</LinearLayout>
+</RelativeLayout>
