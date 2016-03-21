@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_radial_bg"
+    android:orientation="vertical">
+
+    <include layout="@layout/appbar" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/activity_vertical_margin"
+            android:text="ABOUT CHHOTA UDEPUR"
+            android:textColor="@color/colorPrimary" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@drawable/line" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:background="@drawable/image_1" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@drawable/gradient_gb">
+
+            <com.webmyne.base.ui.JustifiedTextView
+                xmlns:noghteh="http://noghteh.ir"
+                android:id="@+id/activity_main_jtv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="left"
+                android:padding="@dimen/activity_vertical_margin"
+                noghteh:textColor="@color/colorPrimary">
+
+            </com.webmyne.base.ui.JustifiedTextView>
+        </ScrollView>
+
+        <!-- <TextView
+              android:id="@+id/txtAboutUs"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:gravity="center_horizontal|right|left|fill_horizontal"
+              android:layout_gravity="center_vertical|right"
+              android:layout_margin="@dimen/medium_text"
+              android:text="ABOUT CHHOTA UDEPUR"
+              android:textSize="10sp"
+              android:textColor="@color/colorPrimary" />-->
+
+
+
+</LinearLayout>

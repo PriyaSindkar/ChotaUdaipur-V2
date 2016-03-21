@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_radial_bg"
+    android:orientation="vertical">
+
+    <include layout="@layout/appbar" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="@dimen/activity_vertical_margin"
+        android:text="COMPLAINS REGISTRATION"
+        android:textColor="@color/colorPrimary" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginBottom="@dimen/std_margin"
+        android:background="@drawable/line" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/std_margin"
+                android:gravity="center"
+                android:text="INFORMATION"
+                android:textColor="@color/colorPrimary"
+                android:textStyle="bold" />
+
+            <Spinner
+                android:id="@+id/spComplaintCategory"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/SpinnerStyle" />
+
+            <Spinner
+                android:id="@+id/spComplaintCode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/SpinnerStyle" />
+
+            <Spinner
+                android:id="@+id/spWard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/SpinnerStyle" />
+
+            <EditText
+                android:id="@+id/edtDesc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/EdittextStyle"
+                android:hint="Describe Complaint"
+                android:inputType="textMultiLine"
+                android:lines="3"
+                android:maxLength="200"
+                />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/std_margin"
+                android:gravity="center"
+                android:text="PERSONAL INFORMATION"
+                android:textColor="@color/colorPrimary"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/edtName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Full Name"
+                android:maxLength="30"
+                style="@style/EdittextStyle" />
+
+            <EditText
+                android:id="@+id/edtAddr"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Address"
+                android:maxLength="100"
+                android:inputType="textMultiLine"
+                android:lines="2"
+                style="@style/EdittextStyle"
+                 />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <EditText
+                    android:id="@+id/edtPincode"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:inputType="number"
+                    android:maxLength="6"
+                    android:hint="Area Pincode"
+                    style="@style/EdittextStyle" />
+
+                <EditText
+                    android:id="@+id/edtMobile"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:maxLength="10"
+                    android:layout_weight="1"
+                    android:hint="Mobile"
+                    style="@style/EdittextStyle"/>
+
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/edtEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Email"
+                android:inputType="textEmailAddress"
+                android:maxLength="30"
+                style="@style/EdittextStyle" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginLeft="@dimen/btn_margin"
+                android:layout_marginRight="@dimen/btn_margin"
+                android:layout_marginTop="@dimen/std_margin"
+                android:layout_marginBottom="@dimen/std_margin"
+                android:weightSum="2">
+
+                <Button
+                    android:id="@+id/btnSubmit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_marginRight="@dimen/std1_half_margin"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@color/colorAccent"
+                    android:text="SUBMIT" />
+
+                <Button
+                    android:id="@+id/btnUpload"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="@color/gray"
+                    android:layout_marginLeft="@dimen/std1_half_margin"
+                    android:layout_weight="1"
+                    android:textColor="@color/black"
+                    android:text="UPLOAD IMAGE" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

@@ -1,6 +1,9 @@
 package com.webmyne.base.base;
 
+import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Movie;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -9,8 +12,12 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.TypedValue;
 import android.view.Display;
+import android.view.GestureDetector;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
+import android.view.View;
+import android.widget.Toast;
 
 import com.webmyne.R;
 import com.webmyne.base.adapter.MyRecyclerViewAdapter;
@@ -80,6 +87,7 @@ public class MainActivity extends AppCompatActivity {
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
         mRecyclerView.setAdapter(mAdapter);
 
+
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -124,4 +132,6 @@ public class MainActivity extends AppCompatActivity {
         useheight = actionBarHeight + getStatusBarHeight() + 10;
         return totalheight - useheight;
     }
+
+
 }

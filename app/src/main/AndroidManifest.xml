@@ -17,11 +17,21 @@
 
         <activity android:name=".base.base.MainActivity"></activity>
         <activity android:name=".base.news.NewsActivity">
+
+        </activity>
+
+        <activity android:name=".base.Complain.ComplainRegisterActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".base.AboutUs.About_UsActivity"></activity>
+
+        <activity android:name=".base.HelpLine.HelpLineActivity"></activity>
+
+        <activity android:name=".base.Achievement.Achievement_Activity"></activity>
     </application>
 
 </manifest>
