@@ -6,5 +6,5 @@
 
     <color name="gradient_dark">#892600</color>
     <color name="gradient_light">#ac5301</color>
-
+    <color name="black">#000000</color>
 </resources>

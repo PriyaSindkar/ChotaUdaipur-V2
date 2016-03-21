@@ -1,4 +1,4 @@
-package com.webmyne.base;
+package com.webmyne.base.base;
 
 import android.graphics.Color;
 import android.os.Bundle;
@@ -81,7 +81,6 @@ public class MainActivity extends AppCompatActivity {
         mRecyclerView.setAdapter(mAdapter);
 
     }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.

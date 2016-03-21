@@ -1,4 +1,4 @@
-package com.webmyne.base;
+package com.webmyne.base.base;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.ProgressBar;
 
 import com.webmyne.R;
+import com.webmyne.base.base.MainActivity;
 
 /**
  * Created by vaibhavirana on 09-03-2016.
