@@ -17,7 +17,6 @@
 
         <activity android:name=".base.base.MainActivity"></activity>
         <activity android:name=".base.news.NewsActivity">
-
         </activity>
 
         <activity android:name=".base.Complain.ComplainRegisterActivity">
@@ -26,6 +25,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".base.base.MainActivity"></activity>
+        <activity android:name=".base.news.NewsActivity"> </activity>
+        <activity android:name=".base.management.ManagementActivity"> </activity>
+        <activity android:name=".base.current_jobs.CurrentJobsActivity"> </activity>
+        <activity android:name=".base.touristSpots.TouristSpotsActivity"> </activity>
 
         <activity android:name=".base.AboutUs.About_UsActivity"></activity>
 

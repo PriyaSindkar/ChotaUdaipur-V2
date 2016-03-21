@@ -4,9 +4,20 @@
     <color name="colorPrimaryDark">#000000</color>
     <color name="colorAccent">#EF6C00</color>
 
+    <color name="colorAccentTint">#30EF6C00</color>
+
+
     <color name="gradient_dark">#892600</color>
     <color name="gradient_light">#ac5301</color>
     <color name="black">#000000</color>
+    <color name="sub_text">#666666</color>
+
+    <color name="grey">#a2a3a5</color>
+    <color name="profile_bg">#b8b8b8</color>
+    <color name="maroon">#7c1502</color>
+
+    <color name="yellow_heading">#f9bd4b</color>
+
     <color name="SubTitle">#FFA726</color>
     <color name="gray">@android:color/darker_gray</color>
 </resources>

@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">ChotaUdaipur</string>
+    <string name="app_name">ChotaUdepur</string>
+
+
+    <string name="dummy">Department of Agriculture and Cooperation: Apply for Technical Assistant and Senior Technical posts:</string>
+    <string name="lorem_ipsum">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, </string>
 </resources>

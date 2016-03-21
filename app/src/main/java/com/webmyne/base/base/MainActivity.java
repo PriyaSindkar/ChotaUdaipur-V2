@@ -1,9 +1,7 @@
 package com.webmyne.base.base;
 
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
-import android.graphics.Movie;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -12,15 +10,16 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.TypedValue;
 import android.view.Display;
-import android.view.GestureDetector;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.MotionEvent;
-import android.view.View;
-import android.widget.Toast;
 
 import com.webmyne.R;
-import com.webmyne.base.adapter.MyRecyclerViewAdapter;
+import com.webmyne.base.base.adapter.MyRecyclerViewAdapter;
+import com.webmyne.base.current_jobs.CurrentJobsActivity;
+import com.webmyne.base.listeners.OnItemSelected;
+import com.webmyne.base.management.ManagementActivity;
+import com.webmyne.base.touristSpots.TouristSpotsActivity;
+import com.webmyne.base.touristSpots.adapter.TouristSpotsAdapter;
 
 
 import java.util.ArrayList;
@@ -28,7 +27,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     private RecyclerView mRecyclerView;
-    private RecyclerView.Adapter mAdapter;
+    private MyRecyclerViewAdapter mAdapter;
 
     ArrayList menu = new ArrayList<String>();
     ArrayList menuicon = new ArrayList<Integer>();
@@ -80,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
         menubgcolor.add("#d500f9");
         menubgcolor.add("#f57c00");
 
-        mAdapter = new MyRecyclerViewAdapter(menu, menuicon, menubgcolor, (getHeight() / 4));
+        mAdapter = new MyRecyclerViewAdapter(this, menu, menuicon, menubgcolor, (getHeight() / 4));
         mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         //RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         // mRecyclerView.setLayoutManager(mLayoutManager);
@@ -88,6 +87,21 @@ public class MainActivity extends AppCompatActivity {
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
         mRecyclerView.setAdapter(mAdapter);
 
+        mAdapter.setOnItemSelectedListener(new OnItemSelected() {
+            @Override
+            public void onItemSelected(String itemName) {
+                if(itemName.equalsIgnoreCase("MANAGEMENT")) {
+                    Intent intent = new Intent(MainActivity.this, ManagementActivity.class);
+                    startActivity(intent);
+                } else if(itemName.equalsIgnoreCase("JOBS")) {
+                    Intent intent = new Intent(MainActivity.this, CurrentJobsActivity.class);
+                    startActivity(intent);
+                } else if(itemName.equalsIgnoreCase("TOURIST SPOTS")) {
+                    Intent intent = new Intent(MainActivity.this, TouristSpotsActivity.class);
+                    startActivity(intent);
+                }
+            }
+        });
 
     }
     @Override
@@ -133,6 +147,4 @@ public class MainActivity extends AppCompatActivity {
         useheight = actionBarHeight + getStatusBarHeight() + 10;
         return totalheight - useheight;
     }
-
-
 }
