@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
+
     ArrayList menu = new ArrayList<String>();
     ArrayList menuicon = new ArrayList<Integer>();
     ArrayList menubgcolor = new ArrayList<String>();
