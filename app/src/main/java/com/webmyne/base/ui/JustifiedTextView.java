@@ -183,7 +183,7 @@ public class JustifiedTextView extends View {
                 if (getTextAreaWidth()==textWidth){
 
                     listStringLine.add(line);
-                    line="";//make line clear
+                    line="";//make line_radial clear
                     continue;
                 }
                 //else if text width excite textAreaWidth then remove last word and justify the StringLine
@@ -191,14 +191,14 @@ public class JustifiedTextView extends View {
 
                     int lastWordCount=arrayWords[i].length();
 
-                    //remove last word that cause line width to excite textAreaWidth
+                    //remove last word that cause line_radial width to excite textAreaWidth
                     line=line.substring(0, line.length()-lastWordCount-1);
 
-                    // if line is empty then should be skipped
+                    // if line_radial is empty then should be skipped
                     if (line.trim().length()==0)
                         continue;
 
-                    //and then we need to justify line
+                    //and then we need to justify line_radial
                     line=justifyTextLine(textPaint,line.trim(),getTextAreaWidth());
 
                     listStringLine.add(line);
@@ -207,7 +207,7 @@ public class JustifiedTextView extends View {
                     continue;
                 }
 
-                //if we are now at last line of paragraph then just add it
+                //if we are now at last line_radial of paragraph then just add it
                 if (i==arrayWords.length-1){
                     listStringLine.add(line);
                     line="";
@@ -220,7 +220,7 @@ public class JustifiedTextView extends View {
     }
 
     /**
-     * this method add space in line until line width become equal to textAreaWidth
+     * this method add space in line_radial until line_radial width become equal to textAreaWidth
      * @param lineString
      * @param lineWidth
      * @param textAreaWidth
@@ -249,7 +249,7 @@ public class JustifiedTextView extends View {
         return lineString;
     }
     /***
-     * this method calculate height for a line of text according to defined TextPaint
+     * this method calculate height for a line_radial of text according to defined TextPaint
      * @param textPaint
      */
     private void setLineHeight(TextPaint textPaint) {
@@ -263,7 +263,7 @@ public class JustifiedTextView extends View {
     }
 
     /***
-     * this method calculate  view's height   according to line count and line height and view's width
+     * this method calculate  view's height   according to line_radial count and line_radial height and view's width
      * @param lineListSize
      * @param lineHeigth
      * @param lineSpace

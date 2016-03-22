@@ -41,7 +41,7 @@
             android:layout_width="match_parent"
             android:layout_height="1.5dp"
             android:layout_below="@id/txtTitle"
-            android:background="@drawable/line" />
+            android:background="@drawable/line_radial" />
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recycler_view"

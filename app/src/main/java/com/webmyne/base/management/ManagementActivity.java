@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 import android.widget.TextView;
 
 import com.webmyne.R;
@@ -16,10 +17,10 @@ import java.util.List;
 /**
  * Created by priyasindkar on 21-03-2016.
  */
-public class ManagementActivity extends AppCompatActivity {
+public class ManagementActivity extends AppCompatActivity implements View.OnClickListener{
     private ManagementAdapter adapter;
     private RecyclerView recyclerView;
-    private TextView txtTitle;
+    private TextView txtTitle, txtBack;
     private List<ManagementDataObject> data = new ArrayList<>();
 
     @Override
@@ -29,6 +30,8 @@ public class ManagementActivity extends AppCompatActivity {
 
         txtTitle = (TextView) findViewById(R.id.txtTitle);
         txtTitle.setText("MANAGEMENT");
+        txtBack = (TextView) findViewById(R.id.txtBack);
+        txtBack.setOnClickListener(this);
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);
@@ -46,5 +49,14 @@ public class ManagementActivity extends AppCompatActivity {
         data.add(managementDataObject);
         managementDataObject = new ManagementDataObject("Chief Office", "Mr. Rasiklal Bhatt", "rasiklal.bhatt@gmail.com", "0265-22665658", "+91 8495689963");
         data.add(managementDataObject);
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.txtBack:
+                onBackPressed();
+                break;
+        }
     }
 }
