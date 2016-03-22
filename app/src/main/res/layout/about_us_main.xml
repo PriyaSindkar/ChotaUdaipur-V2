@@ -34,7 +34,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:padding="@dimen/activity_vertical_margin"
-            android:text="ABOUT CHHOTA UDEPUR"
+            android:text="@string/aboutchhotaudepur"
             android:textColor="@color/colorPrimary" />
 
         <View

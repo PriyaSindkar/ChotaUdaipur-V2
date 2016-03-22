@@ -32,7 +32,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:padding="@dimen/activity_vertical_margin"
-            android:text="ACHIEVEMENT"
+            android:text="@string/achievement"
             android:textColor="@color/colorPrimary" />
 
         <View

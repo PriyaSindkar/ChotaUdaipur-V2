@@ -34,7 +34,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:padding="@dimen/activity_vertical_margin"
-            android:text="COMPLAINS REGISTRATION"
+            android:text="@string/complaint"
             android:textColor="@color/colorPrimary" />
 
         <View
@@ -57,7 +57,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/std_margin"
                     android:gravity="center"
-                    android:text="INFORMATION"
+                    android:text="@string/info"
                     android:textColor="@color/colorPrimary"
                     android:textStyle="bold" />
 
@@ -88,7 +88,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="top"
-                    android:hint="Describe Complaint"
+                    android:hint="@string/desc_hint"
                     android:inputType="textMultiLine"
                     android:lines="3"
                     android:maxLength="200" />
@@ -99,7 +99,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/std_margin"
                     android:gravity="center"
-                    android:text="PERSONAL INFORMATION"
+                    android:text="@string/personalInfo"
                     android:textColor="@color/colorPrimary"
                     android:textStyle="bold" />
 
@@ -108,7 +108,7 @@
                     style="@style/EdittextStyle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Full Name"
+                    android:hint="@string/name_hint"
                     android:maxLength="30" />
 
                 <EditText
@@ -117,7 +117,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="top"
-                    android:hint="Address"
+                    android:hint="@string/addr_hint"
                     android:inputType="textMultiLine"
                     android:lines="2"
                     android:maxLength="100" />
@@ -135,7 +135,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:hint="Area Pincode"
+                        android:hint="@string/pincode_hint"
                         android:inputType="number"
                         android:maxLength="6" />
 
@@ -143,9 +143,10 @@
                         android:id="@+id/edtMobile"
                         style="@style/EdittextStyle"
                         android:layout_width="0dp"
+                        android:layout_marginLeft="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:hint="Mobile"
+                        android:hint="@string/mobile_hint"
                         android:inputType="number"
                         android:maxLength="10" />
 
@@ -156,7 +157,7 @@
                     style="@style/EdittextStyle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Email"
+                    android:hint="@string/Email_hint"
                     android:inputType="textEmailAddress"
                     android:maxLength="30" />
 
@@ -171,28 +172,38 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:layout_width="match_parent"
+                        android:padding="8dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginRight="@dimen/v_small_margin"
                         android:layout_weight="1"
                         android:background="@color/colorAccent"
                         android:gravity="center"
-                        android:padding="@dimen/std_margin"
-                        android:text="SUBMIT"
+                        android:text="@string/submit"
                         android:textColor="@color/colorPrimary" />
 
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/v_small_margin"
+                    <LinearLayout
                         android:layout_weight="1"
+                        android:padding="@dimen/std_margin"
+                        android:layout_marginLeft="@dimen/small_margin"
                         android:background="@color/btn_light_color"
                         android:gravity="center"
-                        android:padding="@dimen/std_margin"
-                        android:text="UPLOAD IMAGE"
-                        android:textColor="@color/black" />
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        >
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_tool"/>
 
+                        <TextView
+                            android:layout_marginLeft="2dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/upload"
+                            android:textColor="@color/black" />
+
+                    </LinearLayout>
 
                 </LinearLayout>
             </LinearLayout>

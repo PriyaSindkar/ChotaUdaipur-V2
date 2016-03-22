@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:background="@drawable/gradient_radial_bg"
     android:orientation="vertical">
 
@@ -17,14 +17,13 @@
         layout="@layout/footer_back"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"/>
+        android:layout_alignParentBottom="true" />
 
     <LinearLayout
-        android:id="@+id/main"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/toolbar"
         android:layout_above="@id/footer"
+        android:layout_below="@id/toolbar"
         android:layout_marginBottom="@dimen/v_small_margin"
         android:orientation="vertical">
 
@@ -32,10 +31,9 @@
             android:id="@+id/txtTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/toolbar"
             android:gravity="center"
             android:padding="@dimen/large_margin"
-            android:text="@string/currentJob"
+            android:text="@string/tender"
             android:textColor="@color/colorPrimary" />
 
         <View
@@ -54,23 +52,32 @@
             android:background="@color/yellow_heading"
             android:gravity="center"
             android:padding="@dimen/small_margin"
-            android:text="@string/jobFound"
+            android:text="@string/tenderrecord"
             android:textAllCaps="true"
             android:textColor="@color/black"
             android:textStyle="bold" />
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/std_margin"
+            android:gravity="center"
+            android:text="@string/tendertitle2"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold" />
+
+
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recycler_view"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/header"
+            android:layout_height="match_parent"
+            android:layout_below="@id/divider"
             android:layout_marginLeft="@dimen/std_margin"
             android:layout_marginRight="@dimen/std_margin"
             android:layout_marginTop="@dimen/std_margin"
             android:scrollbars="vertical" />
 
     </LinearLayout>
-
 
 
 </RelativeLayout>

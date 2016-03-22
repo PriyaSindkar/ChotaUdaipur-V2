@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorPrimary"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/std_margin"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/txtSrNo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/v_small_margin"
+            android:text="@string/dummy"
+            android:textColor="@color/black"
+            android:textSize="@dimen/small_text" />
+
+        <TextView
+            android:id="@+id/txtTenderNo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/v_small_margin"
+            android:text="@string/lorem_ipsum"
+            android:textColor="@color/black"
+            android:textSize="@dimen/small_text" />
+
+        <TextView
+            android:id="@+id/txtStartDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/v_small_margin"
+            android:text="@string/dummy"
+            android:textColor="@color/black"
+            android:textSize="@dimen/small_text" />
+        <TextView
+            android:id="@+id/txtEndDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/v_small_margin"
+            android:text="@string/dummy"
+            android:textColor="@color/black"
+            android:textSize="@dimen/small_text" />
+
+    </LinearLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1.5dp"
+        android:background="@drawable/grey_line" />
+</LinearLayout>

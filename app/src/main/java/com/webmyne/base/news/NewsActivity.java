@@ -4,7 +4,9 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.webmyne.R;
@@ -23,8 +25,13 @@ public class NewsActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_news);
 
+        Toolbar toolbar=(Toolbar)findViewById(R.id.toolbar);
+        ImageView imgNew= (ImageView) toolbar.findViewById(R.id.imgNews);
+        imgNew.setVisibility(View.INVISIBLE);
+
+
         txtTitle = (TextView) findViewById(R.id.txtTitle);
-        txtTitle.setText("NEWS AND UPDATES");
+        txtTitle.setText(R.string.news);
         txtBack = (TextView) findViewById(R.id.txtBack);
         txtBack.setOnClickListener(this);
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);

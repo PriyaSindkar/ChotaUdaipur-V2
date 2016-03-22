@@ -7,7 +7,8 @@
         android:icon="@mipmap/logo"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme.NoActionBar">
+        android:theme="@style/AppTheme.NoActionBar"
+        android:windowSoftInputMode="stateHidden">
         <activity
             android:name=".base.base.SplashActivity"
             android:label="@string/app_name"
@@ -30,7 +31,6 @@
         </activity>
 
 
-
         <activity android:name=".base.management.ManagementActivity"></activity>
         <activity android:name=".base.current_jobs.CurrentJobsActivity"></activity>
         <activity android:name=".base.touristSpots.TouristSpotsActivity"></activity>
@@ -40,6 +40,12 @@
         <activity android:name=".base.HelpLine.HelpLineActivity"></activity>
 
         <activity android:name=".base.Achievement.Achievement_Activity"></activity>
+
+        <activity android:name=".base.Tender.TenderActivity">
+
+        </activity>
+
+        <activity android:name=".base.Tender.TenderDetailActivity"></activity>
     </application>
 
 </manifest>

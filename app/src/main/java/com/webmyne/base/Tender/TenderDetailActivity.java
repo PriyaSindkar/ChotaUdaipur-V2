@@ -1,48 +1,54 @@
-package com.webmyne.base.current_jobs;
+package com.webmyne.base.Tender;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
+import android.view.GestureDetector;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.webmyne.R;
-import com.webmyne.base.current_jobs.adapter.CurrentJobsAdapter;
-import com.webmyne.base.current_jobs.model.CurrentJobsDataObject;
+import com.webmyne.base.Tender.adapter.TenderAdapter;
+import com.webmyne.base.Tender.adapter.TenderDetailAdapter;
+import com.webmyne.base.Tender.model.TenderDataObject;
 import com.webmyne.base.news.NewsActivity;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by priyasindkar on 21-03-2016.
+ * Created by vaibhavirana on 22-03-2016.
  */
-public class CurrentJobsActivity extends AppCompatActivity implements View.OnClickListener{
-    private CurrentJobsAdapter adapter;
+public class TenderDetailActivity extends AppCompatActivity implements View.OnClickListener {
+
+    private TenderDetailAdapter adapter;
     private RecyclerView recyclerView;
-    private TextView txtTitle, txtBack;
-    private List<CurrentJobsDataObject> data = new ArrayList<>();
+    private TextView  txtBack;
+    private List<String> data = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_current_jobs);
+        setContentView(R.layout.tender_detail_main);
         Toolbar toolbar=(Toolbar)findViewById(R.id.toolbar);
         ImageView imgNew= (ImageView) toolbar.findViewById(R.id.imgNews);
         imgNew.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(getApplicationContext(), NewsActivity.class);
+                Intent intent = new Intent(getApplicationContext(), NewsActivity.class);
                 startActivity(intent);
             }
         });
 
-        txtTitle = (TextView) findViewById(R.id.txtTitle);
-        txtTitle.setText("CURRENT JOBS");
+
         txtBack = (TextView) findViewById(R.id.txtBack);
         txtBack.setOnClickListener(this);
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
@@ -50,22 +56,22 @@ public class CurrentJobsActivity extends AppCompatActivity implements View.OnCli
         recyclerView.setLayoutManager(linearLayoutManager);
 
         setData();
-        adapter = new CurrentJobsAdapter(this, data);
+        adapter = new TenderDetailAdapter((ArrayList<String>) data);
         recyclerView.setAdapter(adapter);
+
     }
 
     private void setData() {
-        data.add(new CurrentJobsDataObject());
-        data.add(new CurrentJobsDataObject());
-        data.add(new CurrentJobsDataObject());
-        data.add(new CurrentJobsDataObject());
-        data.add(new CurrentJobsDataObject());
-        data.add(new CurrentJobsDataObject());
-        data.add(new CurrentJobsDataObject());
-        data.add(new CurrentJobsDataObject());
-        data.add(new CurrentJobsDataObject());
-        data.add(new CurrentJobsDataObject());
-
+        //getIntent().getSerializableExtra("MyClass");
+        String desc="Description : "+R.string.lorem_ipsum;
+        data.add(desc);
+        String tenderno="Tender Notice No : "+getIntent().getStringExtra("tenderNo");
+        data.add(tenderno);
+        String tenderdate="Tender Notice Date : "+getIntent().getStringExtra("StrtDate");
+        data.add(tenderdate);
+       /* data.add(getIntent().getStringExtra("tenderNo"));
+        data.add(getIntent().getStringExtra("StrtDate"));
+        data.add(getIntent().getStringExtra("EndDate"));*/
     }
 
     @Override
@@ -76,5 +82,6 @@ public class CurrentJobsActivity extends AppCompatActivity implements View.OnCli
                 break;
         }
     }
+
 
 }

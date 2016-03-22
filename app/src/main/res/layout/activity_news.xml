@@ -33,7 +33,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:padding="@dimen/large_margin"
-            android:text="NEWS AND UPDATES"
+            android:text="@string/news"
             android:textColor="@color/colorPrimary" />
 
         <View

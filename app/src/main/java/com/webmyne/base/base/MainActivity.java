@@ -12,6 +12,8 @@ import android.util.TypedValue;
 import android.view.Display;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
 
 import com.webmyne.R;
 import com.webmyne.base.AboutUs.About_UsActivity;
@@ -19,10 +21,12 @@ import com.webmyne.base.Achievement.Achievement_Activity;
 import com.webmyne.base.Complain.ComplainRegisterActivity;
 import com.webmyne.base.Complain.Complaint_statusActivity;
 import com.webmyne.base.HelpLine.HelpLineActivity;
+import com.webmyne.base.Tender.TenderActivity;
 import com.webmyne.base.base.adapter.MyRecyclerViewAdapter;
 import com.webmyne.base.current_jobs.CurrentJobsActivity;
 import com.webmyne.base.listeners.OnItemSelected;
 import com.webmyne.base.management.ManagementActivity;
+import com.webmyne.base.news.NewsActivity;
 import com.webmyne.base.touristSpots.TouristSpotsActivity;
 import com.webmyne.base.touristSpots.adapter.TouristSpotsAdapter;
 
@@ -45,16 +49,16 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
-        toolbar.setLogo(getResources().getDrawable(R.mipmap.logo));
-        //toolbar.setNavigationIcon(getResources().getDrawable(R.drawable.menu));
-
-        toolbar.setTitleTextColor(getResources().getColor(R.color.colorAccent));
-        toolbar.setSubtitleTextColor(Color.BLACK);
-        getSupportActionBar().setSubtitle("CHHOTA UDEPUR");
-        getSupportActionBar().setTitle("NAGAR SEVA SADAN");
+        Toolbar toolbar=(Toolbar)findViewById(R.id.toolbar);
+        ImageView imgNew= (ImageView) toolbar.findViewById(R.id.imgNews);
+        imgNew.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getApplicationContext(), NewsActivity.class);
+                startActivity(intent);
+            }
+        });
 
 
         menu.add("ABOUT US");
@@ -115,6 +119,9 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(intent);
                 } else if(itemName.equalsIgnoreCase("HELPLINES")) {
                     Intent intent = new Intent(MainActivity.this, HelpLineActivity.class);
+                    startActivity(intent);
+                } else if(itemName.equalsIgnoreCase("TENDER")) {
+                    Intent intent = new Intent(MainActivity.this, TenderActivity.class);
                     startActivity(intent);
                 }
             }

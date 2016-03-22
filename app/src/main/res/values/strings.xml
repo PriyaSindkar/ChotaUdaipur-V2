@@ -1,7 +1,51 @@
 <resources>
     <string name="app_name">ChotaUdepur</string>
 
+    <string name="AppBar_title1">NAGAR SEVA SADAN</string>
+    <string name="AppBar_title2">CHHOTA UDEPUR</string>
 
     <string name="dummy">Department of Agriculture and Cooperation: Apply for Technical Assistant and Senior Technical posts:</string>
     <string name="lorem_ipsum">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, </string>
+
+    <string name="aboutchhotaudepur">ABOUT CHHOTA UDEPUR</string>
+    <string name="achievement">ACHIEVEMENT</string>
+    <string name="currentJob">CURRENT JOBS</string>
+    <string name="jobFound">10 jobs found</string>
+    <string name="news">NEWS AND UPDATES</string>
+    <string name="complaint">COMPLAINS REGISTRATION</string>
+    <string name="info">INFORMATION</string>
+    <string name="desc_hint">Describe Complaint</string>
+    <string name="personalInfo">PERSONAL INFORMATION</string>
+    <string name="name_hint">Full Name</string>
+    <string name="addr_hint">Address</string>
+    <string name="pincode_hint">Area Pincode</string>
+    <string name="mobile_hint">Mobile</string>
+    <string name="Email_hint">Email</string>
+    <string name="submit">SUBMIT</string>
+    <string name="upload">UPLOAD IMAGE</string>
+    <string name="back">BACK</string>
+    <string name="clear">CLEAR</string>
+    <string name="newreg_hint">REGISTER NEW COMPLAINT</string>
+    <string name="checkStatus_hint">Check Complaint Status</string>
+    <string name="c_num_hint">Enter Your Complaint Number</string>
+    <string name="alreadyreg">ALREADY REGISTERD</string>
+    <string name="helpline">HELPLINES</string>
+    <string name="helplinesubtitle">HERE IS A LIST OF EMERGENCY NUMBERS THAT YOU MUST BE AWARE OF :</string>
+    <string name="tender">ACTIVE TENDER</string>
+    <string name="tenderrecord">80 RECORDS FOUND</string>
+    <string name="tendertitle2">Click on each record for detailed information</string>
+
+    <string name="aboutChhotaUdepur">The district consists of the six talukas of Chhota Udepur,
+                Pavi Jetpur, Kawant, Naswadi, Sankheda and the newly created Bodeli taluka.
+                The district headquarters is located at Chhota Udepur.
+                The district was created to facilitate decentralisation and ease of access to government services.
+                Its creation, announced in the run up to the Assembly elections in Gujarat in 2012,
+                was also seen by the media and political analysts as a government strategy to attract tribal votes.
+                Chhota Udaipur is a tribal dominated district and the district headquarters is located 110 km away
+                from Vadodara. It shares its borders with the state of Madhya Pradesh.
+                Chhota Udepur is the third tribal dominated district in eastern Gujarat after the Narmada and Tapi districts.
+                Chhota Udepur district has a forest area of 75,704 hectares and has deposits of dolomite,
+                fluorite, granite and sand all of which are mined. The district is also home to a large dairy industry.
+                The Rathwa tribals who live here produce the Pithora mural paintings by mixing colours with liquour
+                and milk and then using it to depict intricate motifs and scenes on the walls of their village dwellings.</string>
 </resources>

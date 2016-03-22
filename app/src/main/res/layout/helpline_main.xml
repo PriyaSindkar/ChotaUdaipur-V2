@@ -34,7 +34,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:padding="@dimen/activity_vertical_margin"
-        android:text="HELPLINES"
+        android:text="@string/helpline"
         android:textColor="@color/colorPrimary" />
 
     <View
@@ -49,9 +49,9 @@
         android:layout_marginRight="@dimen/title_text"
         android:gravity="center|center_horizontal"
         android:padding="@dimen/activity_vertical_margin"
-        android:text="HERE IS A LIST OF EMERGENCY NUMBERS THAT YOU MUST BE AWARE OF :"
+        android:text="@string/helplinesubtitle"
         android:textColor="@color/SubTitle"
-        android:textSize="12sp" />
+        android:textSize="@dimen/small_text" />
 
 
     <android.support.v7.widget.RecyclerView
