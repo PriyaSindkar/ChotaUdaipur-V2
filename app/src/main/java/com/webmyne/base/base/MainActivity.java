@@ -168,7 +168,7 @@ public class MainActivity extends AppCompatActivity {
         //int width = display.getWidth();  // deprecated
         totalheight = display.getHeight();
         /// 10 for padding
-        useheight = actionBarHeight + getStatusBarHeight() + 10;
+        useheight = actionBarHeight + getStatusBarHeight() + 20;
         return totalheight - useheight;
     }
 }

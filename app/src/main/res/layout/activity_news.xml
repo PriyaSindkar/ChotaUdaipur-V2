@@ -48,10 +48,12 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@id/divider"
+            android:scrollbarAlwaysDrawVerticalTrack="true"
             android:layout_marginLeft="@dimen/std_margin"
             android:layout_marginRight="@dimen/std_margin"
             android:layout_marginTop="@dimen/std_margin"
-            android:scrollbars="vertical" />
+            android:layout_marginBottom="@dimen/std_margin"
+            android:scrollbars="none" />
 
     </LinearLayout>
 

@@ -67,6 +67,7 @@
             android:layout_marginLeft="@dimen/std_margin"
             android:layout_marginRight="@dimen/std_margin"
             android:layout_marginTop="@dimen/std_margin"
+            android:layout_marginBottom="@dimen/std_margin"
             android:scrollbars="vertical" />
 
     </LinearLayout>

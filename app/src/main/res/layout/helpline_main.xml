@@ -20,13 +20,12 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true" />
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@id/footer"
         android:layout_below="@id/toolbar"
-        android:layout_marginBottom="@dimen/v_small_margin"
+        android:layout_marginBottom="@dimen/std_margin"
         android:orientation="vertical">
 
     <TextView
@@ -39,7 +38,7 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_height="1.5dp"
         android:background="@drawable/line_radial" />
 
     <TextView

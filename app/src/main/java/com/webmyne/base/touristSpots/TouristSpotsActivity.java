@@ -46,7 +46,6 @@ public class TouristSpotsActivity extends AppCompatActivity implements View.OnCl
         adapter = new TouristSpotsAdapter(this);
         recyclerView.setLayoutManager(gridLayoutManager);
         recyclerView.setAdapter(adapter);
-
     }
 
     @Override

@@ -27,14 +27,30 @@
         android:layout_marginBottom="@dimen/v_small_margin"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/txtTitle"
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:padding="@dimen/large_margin"
-            android:text="@string/tender"
-            android:textColor="@color/colorPrimary" />
+            android:layout_marginTop="@dimen/std1_half_margin"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/txtTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="@dimen/large_margin"
+                android:text="@string/tender"
+                android:textColor="@color/colorPrimary" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_gravity="right"
+                android:layout_marginRight="@dimen/std_margin"
+                android:background="@drawable/ic_download" />
+        </RelativeLayout>
 
         <View
             android:id="@+id/divider"

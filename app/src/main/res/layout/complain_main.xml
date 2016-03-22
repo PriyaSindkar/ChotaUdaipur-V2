@@ -45,7 +45,8 @@
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:scrollbars="none">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -134,6 +135,7 @@
                         style="@style/EdittextStyle"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/v_small_margin"
                         android:layout_weight="1"
                         android:hint="@string/pincode_hint"
                         android:inputType="number"
@@ -143,7 +145,7 @@
                         android:id="@+id/edtMobile"
                         style="@style/EdittextStyle"
                         android:layout_width="0dp"
-                        android:layout_marginLeft="0dp"
+                        android:layout_marginLeft="@dimen/v_small_margin"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:hint="@string/mobile_hint"

@@ -9,7 +9,7 @@
         android:id="@+id/cv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/std_margin"
+        android:layout_margin="@dimen/small_margin"
         card_view:cardElevation="@dimen/v_small_margin">
 
         <LinearLayout

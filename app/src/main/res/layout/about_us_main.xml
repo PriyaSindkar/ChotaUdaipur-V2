@@ -52,9 +52,12 @@
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:scrollbars="none"
+            android:layout_marginBottom="@dimen/std_margin"
             android:layout_weight="1">
 
-            <com.webmyne.base.ui.JustifiedTextView xmlns:noghteh="http://noghteh.ir"
+            <com.webmyne.base.ui.JustifiedTextView
+                xmlns:noghteh="http://noghteh.ir"
                 android:id="@+id/activity_main_jtv"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
