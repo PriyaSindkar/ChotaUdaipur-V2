@@ -70,6 +70,8 @@ public class CurrentJobsActivity extends AppCompatActivity implements View.OnCli
                             // Log.e("onResponse", dataArray.get(i).toString());
                             data1.add(dataArray.get(i));
                         }
+
+                        setAdapterData();
                         //   Log.e("onResponse", achivements.toString());
                     } catch (Exception e) {
                         Log.e("### exc", e.toString());
@@ -95,6 +97,10 @@ public class CurrentJobsActivity extends AppCompatActivity implements View.OnCli
             }, 2500);
         }
 
+
+    }
+
+    private void setAdapterData(){
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);

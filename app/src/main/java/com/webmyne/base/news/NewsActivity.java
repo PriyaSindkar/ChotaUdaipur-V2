@@ -67,9 +67,11 @@ public class NewsActivity extends AppCompatActivity implements View.OnClickListe
                         ArrayList<FetchNewsResult> dataArray = response.body().getFetchNewsResult();
                         for(int i=0;i<dataArray.size();i++)
                         {
-                            // Log.e("onResponse", dataArray.get(i).toString());
+                             Log.e("onResponse", dataArray.get(i).toString());
                             data1.add(dataArray.get(i));
                         }
+
+                        setAdapterData();
                            //Log.e("onResponse", data1.toString());
                     } catch (Exception e) {
                         Log.e("### exc", e.toString());
@@ -95,6 +97,10 @@ public class NewsActivity extends AppCompatActivity implements View.OnClickListe
             }, 2500);
         }
 
+
+    }
+
+    private void setAdapterData(){
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);

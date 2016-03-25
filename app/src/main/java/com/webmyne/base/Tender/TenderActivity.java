@@ -90,6 +90,7 @@ public class TenderActivity extends AppCompatActivity implements View.OnClickLis
                             // Log.e("onResponse", dataArray.get(i).toString());
                             data1.add(dataArray.get(i));
                         }
+                        setDataAdapter();
                         //Log.e("onResponse", data1.toString());
                     } catch (Exception e) {
                         Log.e("### exc", e.toString());
@@ -116,6 +117,11 @@ public class TenderActivity extends AppCompatActivity implements View.OnClickLis
         }
         
         
+
+    }
+
+
+    private void setDataAdapter(){
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);
@@ -128,8 +134,8 @@ public class TenderActivity extends AppCompatActivity implements View.OnClickLis
 
                 //Toast.makeText(getApplicationContext(), data.get(position).getSrNo() + " is selected!", Toast.LENGTH_SHORT).show();
                 //Intent i = new Intent(context, EditActivity.class);
-               // i.putExtra("Editing", details);
-               // startActivity(i);
+                // i.putExtra("Editing", details);
+                // startActivity(i);
                 TenderResult t1=data1.get(position);
                 Intent intent=new Intent(getApplicationContext(),TenderDetailActivity.class);
                 intent.putExtra("tender", t1);

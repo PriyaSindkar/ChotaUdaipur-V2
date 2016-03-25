@@ -81,6 +81,7 @@ public class ManagementActivity extends AppCompatActivity implements View.OnClic
                             // Log.e("onResponse", dataArray.get(i).toString());
                             dataArray1.add(dataArray.get(i));
                         }
+                        setAdapterData();
                         //   Log.e("onResponse", achivements.toString());
                     } catch (Exception e) {
                         Log.e("### exc", e.toString());
@@ -107,13 +108,16 @@ public class ManagementActivity extends AppCompatActivity implements View.OnClic
         }
 
 
+
+
+    }
+    private void setAdapterData(){
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);
         //setData();
         adapter = new ManagementAdapter(this, dataArray1);
         recyclerView.setAdapter(adapter);
-
     }
 
     private void init_toolbar() {

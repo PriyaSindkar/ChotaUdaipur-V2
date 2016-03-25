@@ -75,6 +75,7 @@ public class TouristSpotsActivity extends AppCompatActivity implements View.OnCl
                             // Log.e("onResponse", dataArray.get(i).toString());
                             dataArray1.add(dataArray.get(i));
                         }
+                        setAdapterData();
                         Log.e("onResponse", dataArray1.toString());
                     } catch (Exception e) {
                         Log.e("### exc", e.toString());
@@ -100,6 +101,10 @@ public class TouristSpotsActivity extends AppCompatActivity implements View.OnCl
             }, 2500);
         }
         
+
+    }
+
+    private void setAdapterData(){
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2);
         adapter = new TouristSpotsAdapter(this,dataArray1);

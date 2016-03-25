@@ -77,6 +77,8 @@ public class Achievement_Activity extends AppCompatActivity implements View.OnCl
                            // Log.e("onResponse", dataArray.get(i).toString());
                             achivements.add(dataArray.get(i));
                         }
+                        setAdapterData();
+
                      //   Log.e("onResponse", achivements.toString());
                     } catch (Exception e) {
                         Log.e("### exc", e.toString());
@@ -103,6 +105,10 @@ public class Achievement_Activity extends AppCompatActivity implements View.OnCl
             }, 2500);
         }
 
+
+    }
+
+    private void setAdapterData(){
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);

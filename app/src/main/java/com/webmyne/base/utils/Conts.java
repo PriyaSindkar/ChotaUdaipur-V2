@@ -2,7 +2,6 @@ package com.webmyne.base.utils;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
-import retrofit2.converter.jackson.JacksonConverterFactory;
 
 /**
  * Created by vaibhavirana on 23-03-2016.

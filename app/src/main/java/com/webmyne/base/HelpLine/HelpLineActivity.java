@@ -77,6 +77,8 @@ public class HelpLineActivity extends AppCompatActivity implements View.OnClickL
                             // Log.e("onResponse", dataArray.get(i).toString());
                             helpline.add(dataArray.get(i));
                         }
+                        setDataAdapter();
+
                         //   Log.e("onResponse", achivements.toString());
                     } catch (Exception e) {
                         Log.e("### exc", e.toString());
@@ -104,6 +106,10 @@ public class HelpLineActivity extends AppCompatActivity implements View.OnClickL
         }
 
 
+
+    }
+
+    private void setDataAdapter(){
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);
