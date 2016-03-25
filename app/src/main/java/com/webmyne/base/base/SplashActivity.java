@@ -18,6 +18,11 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splash_main);
 
+        init();
+
+    }
+
+    private void init() {
         ProgressBar v = (ProgressBar) findViewById(R.id.progressBar);
         v.getIndeterminateDrawable().setColorFilter(0xFFFFFFFF,
                 android.graphics.PorterDuff.Mode.MULTIPLY);

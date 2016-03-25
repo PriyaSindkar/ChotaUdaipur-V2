@@ -48,4 +48,20 @@
                 fluorite, granite and sand all of which are mined. The district is also home to a large dairy industry.
                 The Rathwa tribals who live here produce the Pithora mural paintings by mixing colours with liquour
                 and milk and then using it to depict intricate motifs and scenes on the walls of their village dwellings.</string>
+
+
+
+    <string name="aboutus">ABOUT US</string>
+    <string name="management">MANAGEMENT</string>
+    <string name="complains">COMPLAINS</string>
+    <string name="achievements">ACHIVEMENTS</string>
+    <string name="jobs">JOBS</string>
+    <string name="tourist">TOURIST SPOTS</string>
+    <string name="helplines">HELPLINES</string>
+    <string name="tenders">TENDER</string>
+
+    <string name="check_conn">Please Check Internet Connection</string>
+
+
+
 </resources>

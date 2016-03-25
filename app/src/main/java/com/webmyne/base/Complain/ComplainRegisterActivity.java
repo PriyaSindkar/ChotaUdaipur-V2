@@ -20,25 +20,19 @@ import java.util.ArrayList;
  */
 public class ComplainRegisterActivity extends AppCompatActivity implements View.OnClickListener{
 
-    Spinner spComplaintCategory,spComplaintCode,spWard;
+    private Spinner spComplaintCategory,spComplaintCode,spWard;
     private TextView txtBack;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.complain_main);
+        init_toolbar();
+        init();
+    }
+
+    private void init() {
         txtBack = (TextView) findViewById(R.id.txtBack);
         txtBack.setOnClickListener(this);
-
-        Toolbar toolbar=(Toolbar)findViewById(R.id.toolbar);
-        ImageView imgNew= (ImageView) toolbar.findViewById(R.id.imgNews);
-        imgNew.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent=new Intent(getApplicationContext(), NewsActivity.class);
-                startActivity(intent);
-            }
-        });
-
 
         ArrayList<String> Category=new ArrayList<>();
         Category.add("Complaint Category");
@@ -70,6 +64,20 @@ public class ComplainRegisterActivity extends AppCompatActivity implements View.
         mySpinnerAdapter boardAdapter2 = new mySpinnerAdapter(ComplainRegisterActivity.this, ward, R.layout.spinner_main_view, R.layout.spinner_drop_view);
         spWard.setAdapter(boardAdapter2);
 
+    }
+
+    private void init_toolbar() {
+
+
+        Toolbar toolbar=(Toolbar)findViewById(R.id.toolbar);
+        ImageView imgNew= (ImageView) toolbar.findViewById(R.id.imgNews);
+        imgNew.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getApplicationContext(), NewsActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override

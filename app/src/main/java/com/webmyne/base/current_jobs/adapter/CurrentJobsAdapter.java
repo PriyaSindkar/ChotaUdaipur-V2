@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.webmyne.R;
-import com.webmyne.base.current_jobs.model.CurrentJobsDataObject;
+import com.webmyne.base.current_jobs.model.FetchJobResult;
 
 import java.util.List;
 
@@ -17,9 +17,9 @@ import java.util.List;
  */
 public class CurrentJobsAdapter extends RecyclerView.Adapter<CurrentJobsAdapter.CurrentJobsItemHolder> {
     private Context mContext;
-    private List<CurrentJobsDataObject> mData;
+    private List<FetchJobResult> mData;
 
-    public CurrentJobsAdapter(Context _ctx, List<CurrentJobsDataObject> data) {
+    public CurrentJobsAdapter(Context _ctx, List<FetchJobResult> data) {
         this.mContext = _ctx;
         mData = data;
     }
@@ -33,8 +33,10 @@ public class CurrentJobsAdapter extends RecyclerView.Adapter<CurrentJobsAdapter.
     @Override
     public void onBindViewHolder(CurrentJobsItemHolder holder, int position) {
         holder.txtIndex.setText(String.valueOf(position + 1)+". ");
-    }
+        holder.txtTitle.setText(mData.get(position).getTitle());
+        holder.txtDescription.setText(mData.get(position).getDescription());
 
+    }
 
     @Override
     public int getItemViewType(int position) {

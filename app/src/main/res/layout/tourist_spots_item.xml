@@ -14,6 +14,7 @@
         card_view:cardElevation="@dimen/std_margin">
 
         <ImageView
+            android:id="@+id/image"
             android:layout_width="wrap_content"
             android:scaleType="centerCrop"
             android:layout_height="wrap_content"

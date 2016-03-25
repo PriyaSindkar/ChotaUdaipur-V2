@@ -7,17 +7,19 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.webmyne.R;
+import com.webmyne.base.HelpLine.model.HelpLineResult;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by vaibhavirana on 10-03-2016.
  */
 public class HelpLineAdapter extends RecyclerView.Adapter<HelpLineAdapter.MyViewHolder> {
 
-    ArrayList<String> items;
+    List<HelpLineResult> items;
 
-    public HelpLineAdapter(ArrayList<String> items) {
+    public HelpLineAdapter(List<HelpLineResult> items) {
         this.items=items;
     }
 
@@ -29,7 +31,7 @@ public class HelpLineAdapter extends RecyclerView.Adapter<HelpLineAdapter.MyView
 
     @Override
     public void onBindViewHolder(HelpLineAdapter.MyViewHolder holder, int position) {
-        holder.txtViewTitle.setText(items.get(position).toString());
+        holder.txtViewTitle.setText(items.get(position).Name + " : "+ items.get(position).ContactNo);
     }
 
     @Override

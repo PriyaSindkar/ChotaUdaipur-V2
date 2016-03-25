@@ -8,6 +8,7 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.Display;
 import android.view.Menu;
@@ -38,56 +39,25 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView mRecyclerView;
     private MyRecyclerViewAdapter mAdapter;
 
-    ArrayList menu = new ArrayList<String>();
-    ArrayList menuicon = new ArrayList<Integer>();
-    ArrayList menubgcolor = new ArrayList<String>();
+    private ArrayList menu = new ArrayList<Integer>();
+    private ArrayList menuicon = new ArrayList<Integer>();
+    private ArrayList menubgcolor = new ArrayList<Integer>();
 
     private int actionBarHeight, useheight, totalheight;
-
+    private Toolbar toolbar;
+    private ImageView imgNew;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Toolbar toolbar=(Toolbar)findViewById(R.id.toolbar);
-        ImageView imgNew= (ImageView) toolbar.findViewById(R.id.imgNews);
-        imgNew.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent=new Intent(getApplicationContext(), NewsActivity.class);
-                startActivity(intent);
-            }
-        });
+        init_toolbar();
+        init();
+    }
 
-
-        menu.add("ABOUT US");
-        menu.add("MANAGEMENT");
-        menu.add("COMPLAINS");
-        menu.add("ACHIVEMENTS");
-        menu.add("JOBS");
-        menu.add("TOURIST SPOTS");
-        menu.add("HELPLINES");
-        menu.add("TENDER");
-
-        menuicon.add(R.drawable.aboutus);
-        menuicon.add(R.drawable.management);
-        menuicon.add(R.drawable.complains);
-        menuicon.add(R.drawable.acheivments);
-        menuicon.add(R.drawable.jobs);
-        menuicon.add(R.drawable.tourists);
-        menuicon.add(R.drawable.helpline);
-        menuicon.add(R.drawable.tender);
-
-        menubgcolor.add("#e91e63");
-        menubgcolor.add("#ffc107");
-        menubgcolor.add("#2196f3");
-        menubgcolor.add("#e53935");
-        menubgcolor.add("#2e7d32");
-        menubgcolor.add("#4a148c");
-        menubgcolor.add("#d500f9");
-        menubgcolor.add("#f57c00");
-
+    private void init() {
+        setdata();
         mAdapter = new MyRecyclerViewAdapter(this, menu, menuicon, menubgcolor, (getHeight() / 4));
         mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         //RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
@@ -99,28 +69,30 @@ public class MainActivity extends AppCompatActivity {
         mAdapter.setOnItemSelectedListener(new OnItemSelected() {
             @Override
             public void onItemSelected(String itemName) {
-                if(itemName.equalsIgnoreCase("MANAGEMENT")) {
+                //Log.d("selected item",getResources().getString(Integer.valueOf(itemName)) +" || "+ R.string.management);
+
+                if (Integer.valueOf(itemName)==R.string.management) {
                     Intent intent = new Intent(MainActivity.this, ManagementActivity.class);
                     startActivity(intent);
-                } else if(itemName.equalsIgnoreCase("JOBS")) {
+                } else if (Integer.valueOf(itemName)==R.string.jobs) {
                     Intent intent = new Intent(MainActivity.this, CurrentJobsActivity.class);
                     startActivity(intent);
-                } else if(itemName.equalsIgnoreCase("TOURIST SPOTS")) {
+                } else if (Integer.valueOf(itemName)==R.string.tourist) {
                     Intent intent = new Intent(MainActivity.this, TouristSpotsActivity.class);
                     startActivity(intent);
-                } else if(itemName.equalsIgnoreCase("ABOUT US")) {
+                } else if (Integer.valueOf(itemName)==R.string.aboutus) {
                     Intent intent = new Intent(MainActivity.this, About_UsActivity.class);
                     startActivity(intent);
-                }  else if(itemName.equalsIgnoreCase("COMPLAINS")) {
+                } else if (Integer.valueOf(itemName)==R.string.complains) {
                     Intent intent = new Intent(MainActivity.this, Complaint_statusActivity.class);
                     startActivity(intent);
-                } else if(itemName.equalsIgnoreCase("ACHIVEMENTS")) {
+                } else if (Integer.valueOf(itemName)==R.string.achievements) {
                     Intent intent = new Intent(MainActivity.this, Achievement_Activity.class);
                     startActivity(intent);
-                } else if(itemName.equalsIgnoreCase("HELPLINES")) {
+                } else if (Integer.valueOf(itemName)==R.string.helplines) {
                     Intent intent = new Intent(MainActivity.this, HelpLineActivity.class);
                     startActivity(intent);
-                } else if(itemName.equalsIgnoreCase("TENDER")) {
+                } else if (Integer.valueOf(itemName)==R.string.tenders) {
                     Intent intent = new Intent(MainActivity.this, TenderActivity.class);
                     startActivity(intent);
                 }
@@ -128,6 +100,50 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
+
+
+    private  void setdata()
+    {
+        menu.add(R.string.aboutus);
+        menu.add(R.string.management);
+        menu.add(R.string.complains);
+        menu.add(R.string.achievements);
+        menu.add(R.string.jobs);
+        menu.add(R.string.tourist);
+        menu.add(R.string.helplines);
+        menu.add(R.string.tenders);
+
+        menuicon.add(R.drawable.aboutus);
+        menuicon.add(R.drawable.management);
+        menuicon.add(R.drawable.complains);
+        menuicon.add(R.drawable.acheivments);
+        menuicon.add(R.drawable.jobs);
+        menuicon.add(R.drawable.tourists);
+        menuicon.add(R.drawable.helpline);
+        menuicon.add(R.drawable.tender);
+
+        menubgcolor.add(R.color.menu1);
+        menubgcolor.add(R.color.menu2);
+        menubgcolor.add(R.color.menu3);
+        menubgcolor.add(R.color.menu4);
+        menubgcolor.add(R.color.menu5);
+        menubgcolor.add(R.color.menu6);
+        menubgcolor.add(R.color.menu7);
+        menubgcolor.add(R.color.menu8);
+    }
+    private void init_toolbar() {
+        toolbar=(Toolbar)findViewById(R.id.toolbar);
+        imgNew= (ImageView) toolbar.findViewById(R.id.imgNews);
+        imgNew.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getApplicationContext(), NewsActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -149,6 +165,9 @@ public class MainActivity extends AppCompatActivity {
 */
         return super.onOptionsItemSelected(item);
     }
+
+
+
 
     public int getStatusBarHeight() {
         int result = 0;

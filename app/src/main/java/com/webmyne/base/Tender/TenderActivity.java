@@ -49,16 +49,12 @@ public class TenderActivity extends AppCompatActivity implements View.OnClickLis
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tender_main);
-        Toolbar toolbar=(Toolbar)findViewById(R.id.toolbar);
-        ImageView imgNew= (ImageView) toolbar.findViewById(R.id.imgNews);
-        imgNew.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), NewsActivity.class);
-                startActivity(intent);
-            }
-        });
 
+        init_toolbar();
+        init();
+    }
+
+    private void init() {
 
         txtBack = (TextView) findViewById(R.id.txtBack);
         txtBack.setOnClickListener(this);
@@ -88,6 +84,18 @@ public class TenderActivity extends AppCompatActivity implements View.OnClickLis
 
             }
         }));
+    }
+
+    private void init_toolbar() {
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        ImageView imgNew= (ImageView) toolbar.findViewById(R.id.imgNews);
+        imgNew.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getApplicationContext(), NewsActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void setData() {

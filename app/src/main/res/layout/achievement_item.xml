@@ -17,15 +17,32 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/colorPrimary"
-            android:gravity="center"
+            android:weightSum="3"
             android:orientation="horizontal">
 
-            <ImageView
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_margin="@dimen/std_margin"
-                android:scaleType="centerCrop"
-                android:src="@drawable/image_1" />
+            <FrameLayout
+                android:layout_width="0sp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/std_margin">
+
+                <com.webmyne.base.ui.SquareImageView
+                    android:id="@+id/imgAchivement"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="@dimen/activity_horizontal_margin"
+                    android:scaleType="fitCenter"
+                    android:background="@color/profile_bg"
+                    android:src="@drawable/image_1" />
+
+                <ProgressBar
+                    android:id="@+id/progressBar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center" />
+            </FrameLayout>
+
 
 
             <LinearLayout
@@ -36,6 +53,7 @@
                 android:padding="@dimen/std_margin">
 
                 <TextView
+                    android:id="@+id/txtTitle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Title"
@@ -44,11 +62,20 @@
                     android:textSize="@dimen/large_text" />
 
                 <TextView
+                    android:id="@+id/txtDescription"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/lorem_ipsum"
                     android:textColor="@color/black"
-                    android:textSize="12sp" />
+                    android:textSize="@dimen/small_text" />
+
+                <TextView
+                    android:id="@+id/txtDescription1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/lorem_ipsum"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/small_text" />
 
             </LinearLayout>
 

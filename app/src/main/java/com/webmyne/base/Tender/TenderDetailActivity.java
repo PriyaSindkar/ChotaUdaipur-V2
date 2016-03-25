@@ -38,17 +38,12 @@ public class TenderDetailActivity extends AppCompatActivity implements View.OnCl
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tender_detail_main);
-        Toolbar toolbar=(Toolbar)findViewById(R.id.toolbar);
-        ImageView imgNew= (ImageView) toolbar.findViewById(R.id.imgNews);
-        imgNew.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), NewsActivity.class);
-                startActivity(intent);
-            }
-        });
+        init_toolbar();
+        init();
 
+    }
 
+    private void init() {
         txtBack = (TextView) findViewById(R.id.txtBack);
         txtBack.setOnClickListener(this);
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
@@ -58,6 +53,18 @@ public class TenderDetailActivity extends AppCompatActivity implements View.OnCl
         setData();
         adapter = new TenderDetailAdapter((ArrayList<String>) data);
         recyclerView.setAdapter(adapter);
+    }
+
+    private void init_toolbar() {
+        Toolbar toolbar=(Toolbar)findViewById(R.id.toolbar);
+        ImageView imgNew= (ImageView) toolbar.findViewById(R.id.imgNews);
+        imgNew.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), NewsActivity.class);
+                startActivity(intent);
+            }
+        });
 
     }
 
@@ -82,6 +89,4 @@ public class TenderDetailActivity extends AppCompatActivity implements View.OnCl
                 break;
         }
     }
-
-
 }

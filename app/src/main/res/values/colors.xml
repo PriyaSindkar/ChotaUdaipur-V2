@@ -22,4 +22,13 @@
     <color name="gray">@android:color/darker_gray</color>
     <color name="btn_light_color">#eaeaea</color>
 
+    <color name="menu1">#e91e63</color>
+    <color name="menu2">#ffc107</color>
+    <color name="menu3">#2196f3</color>
+    <color name="menu4">#e53935</color>
+    <color name="menu5">#2e7d32</color>
+    <color name="menu6">#4a148c</color>
+    <color name="menu7">#d500f9</color>
+    <color name="menu8">#f57c00</color>
+
 </resources>

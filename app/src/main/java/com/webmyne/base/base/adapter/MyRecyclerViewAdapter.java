@@ -21,13 +21,13 @@ import java.util.ArrayList;
  * Created by vaibhavirana on 10-03-2016.
  */
 public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAdapter.MyViewHolder> {
-    ArrayList<String> mDataset, mDatasetBgColor;
-    ArrayList<Integer> mDatasetIcon;
+    ArrayList<Integer> mDataset;
+    ArrayList<Integer> mDatasetIcon,mDatasetBgColor;
     int h;
     private Context mContext;
     private OnItemSelected onItemSelected;
 
-    public MyRecyclerViewAdapter(Context _ctx, ArrayList<String> data, ArrayList menuicon, ArrayList menubgcolor, int height) {
+    public MyRecyclerViewAdapter(Context _ctx, ArrayList<Integer> data, ArrayList<Integer> menuicon, ArrayList<Integer> menubgcolor, int height) {
         mContext = _ctx;
         mDataset = data;
         mDatasetIcon = menuicon;
@@ -44,8 +44,8 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
 
     @Override
     public void onBindViewHolder(MyRecyclerViewAdapter.MyViewHolder holder, final int position) {
-        holder.ll1.setBackgroundColor(Color.parseColor(mDatasetBgColor.get(position)));
-        holder.title.setText(mDataset.get(position).toString());
+        holder.ll1.setBackgroundColor(mContext.getResources().getColor(mDatasetBgColor.get(position)));
+        holder.title.setText(mContext.getResources().getString(mDataset.get(position)));
         holder.imgIcon.setImageResource(mDatasetIcon.get(position));
 
         holder.linearParent.setOnClickListener(new View.OnClickListener() {
