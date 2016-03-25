@@ -1,10 +1,7 @@
 package com.webmyne.base.AboutUs;
 
-import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.os.Handler;
@@ -16,7 +13,6 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
@@ -27,29 +23,16 @@ import com.webmyne.R;
 import com.webmyne.base.AboutUs.api.AboutusApi;
 import com.webmyne.base.AboutUs.model.AboutUsModel;
 import com.webmyne.base.AboutUs.model.AboutUsResp;
-import com.webmyne.base.base.MainActivity;
 import com.webmyne.base.base.MyApplication;
 import com.webmyne.base.news.NewsActivity;
 import com.webmyne.base.ui.JustifiedTextView;
 import com.webmyne.base.utils.Functions;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
-
-import java.io.BufferedInputStream;
-import java.io.BufferedOutputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.URL;
 import java.util.ArrayList;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
-import retrofit2.converter.jackson.JacksonConverterFactory;
 
 /**
  * Created by vaibhavirana on 21-03-2016.

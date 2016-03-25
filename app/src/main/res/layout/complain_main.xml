@@ -22,11 +22,11 @@
 
 
     <LinearLayout
-        android:layout_below="@id/toolbar"
-        android:layout_above="@id/footer"
-        android:layout_marginBottom="@dimen/v_small_margin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_above="@id/footer"
+        android:layout_below="@id/toolbar"
+        android:layout_marginBottom="@dimen/v_small_margin"
         android:orientation="vertical">
 
         <TextView
@@ -145,8 +145,8 @@
                         android:id="@+id/edtMobile"
                         style="@style/EdittextStyle"
                         android:layout_width="0dp"
-                        android:layout_marginLeft="@dimen/v_small_margin"
                         android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/v_small_margin"
                         android:layout_weight="1"
                         android:hint="@string/mobile_hint"
                         android:inputType="number"
@@ -159,12 +159,22 @@
                     style="@style/EdittextStyle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/Email_hint"
-                    android:inputType="textEmailAddress"
-                    android:maxLength="30" />
+                    android:hint="@string/Email_hint"/>
+
+                <TextView
+                    android:visibility="gone"
+                    android:id="@+id/txtImageUploaded"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/std_margin"
+                    android:gravity="center"
+                    android:text="@string/image_uploaded"
+                    android:textColor="@color/colorPrimary"
+                    android:textStyle="bold" />
 
 
                 <LinearLayout
+                    android:id="@+id/linearSubmit"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/std_margin"
@@ -174,37 +184,38 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:padding="8dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:background="@color/colorAccent"
                         android:gravity="center"
+                        android:padding="8dp"
                         android:text="@string/submit"
                         android:textColor="@color/colorPrimary" />
 
                     <LinearLayout
-                        android:layout_weight="1"
-                        android:padding="@dimen/std_margin"
-                        android:layout_marginLeft="@dimen/small_margin"
-                        android:background="@color/btn_light_color"
-                        android:gravity="center"
+                        android:id="@+id/linearUploadImage"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/small_margin"
+                        android:layout_weight="1"
+                        android:background="@color/btn_light_color"
+                        android:gravity="center"
                         android:orientation="horizontal"
-                        >
+                        android:padding="@dimen/std_margin">
+
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:src="@drawable/ic_tool"/>
+                            android:src="@drawable/ic_tool" />
 
                         <TextView
-                            android:layout_marginLeft="2dp"
+                            android:id="@+id/txtUpload"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginLeft="2dp"
                             android:text="@string/upload"
                             android:textColor="@color/black" />
-
                     </LinearLayout>
 
                 </LinearLayout>

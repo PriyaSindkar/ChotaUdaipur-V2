@@ -9,25 +9,23 @@ import android.widget.BaseAdapter;
 import android.widget.SpinnerAdapter;
 import android.widget.TextView;
 
-
 import com.webmyne.R;
 import com.webmyne.base.utils.Functions;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by krishnakumar on 14-03-2016.
  */
-public class mySpinnerAdapter extends BaseAdapter implements SpinnerAdapter {
+public class ComplainSpinnerAdapter extends BaseAdapter implements SpinnerAdapter {
 
     LayoutInflater layoutInflator;
 
-    ArrayList values;
+    ArrayList<ComplainSpinnerModel> values;
     Context ctx;
     int mainSpinnerView, dropSpinnerView;
 
-    public mySpinnerAdapter(Context context, ArrayList<String> list, int mainView, int dropView) {
+    public ComplainSpinnerAdapter(Context context, ArrayList<ComplainSpinnerModel> list, int mainView, int dropView) {
         this.values = list;
         ctx = context;
         mainSpinnerView = mainView;
@@ -62,9 +60,7 @@ public class mySpinnerAdapter extends BaseAdapter implements SpinnerAdapter {
         txt.setPadding(12, 12, 12, 12);
         txt.setTextSize(12);
         txt.setGravity(Gravity.CENTER_VERTICAL);
-    //    txt.setTypeface(PrefUtils.getNexaLight(ctx));
-//        txt.setTextColor(Color.parseColor("#000000"));
-        txt.setText(values.get(position).toString());
+        txt.setText(values.get(position).name.toString());
         txt.setTypeface(Functions.getTypeFace(ctx));
         return view;
     }
@@ -82,9 +78,7 @@ public class mySpinnerAdapter extends BaseAdapter implements SpinnerAdapter {
         txt.setPadding(12, 12, 12, 12);
         txt.setTextSize(12);
         txt.setTypeface(Functions.getTypeFace(ctx));
-  //      txt.setTypeface(PrefUtils.getNexaLight(ctx));
-//        txt.setTextColor(Color.parseColor("#000000"));
-        txt.setText(values.get(position).toString());
+        txt.setText(values.get(position).name);
         return view;
     }
 }

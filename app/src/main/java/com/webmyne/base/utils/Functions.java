@@ -3,18 +3,24 @@ package com.webmyne.base.utils;
 import android.app.Activity;
 import android.app.DownloadManager;
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.graphics.Typeface;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.util.Base64;
 import android.net.Uri;
 import android.os.Build;
 import android.util.DisplayMetrics;
 import android.view.Display;
 import android.view.WindowManager;
 import android.widget.Toast;
+
+import java.io.ByteArrayOutputStream;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import java.util.List;
 
@@ -54,6 +60,26 @@ public class Functions {
         return haveConnectedWifi || haveConnectedMobile;
     }
 
+    public static boolean emailValidator(String email)
+    {
+        Pattern pattern;
+        Matcher matcher;
+        final String EMAIL_PATTERN =
+                "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+                        + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
+        pattern = Pattern.compile(EMAIL_PATTERN);
+        matcher = pattern.matcher(email);
+        return matcher.matches();
+    }
+
+    public static String returnBas64Image(Bitmap thumbnail) {
+        //complete code to save image on server
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        thumbnail.compress(Bitmap.CompressFormat.PNG, 100, baos); //bm is the bitmap object
+        byte[] b = baos.toByteArray();
+        String encodedImage = Base64.encodeToString(b, Base64.DEFAULT);
+        return encodedImage;
+    }
 
     public static void downloadFile(Context context, String DownloadUrl) {
         // String DownloadUrl = mData.get();

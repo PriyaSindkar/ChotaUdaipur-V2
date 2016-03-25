@@ -61,6 +61,8 @@
         <EditText
             android:id="@+id/edtComplainstatus"
             style="@style/EdittextStyle"
+            android:visibility="gone"
+            android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/checkStatus_hint"
@@ -76,24 +78,25 @@
             android:weightSum="2"
             android:orientation="horizontal">
 
-            <Button
-                android:id="@+id/btnBack"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginRight="@dimen/std1_half_margin"
-                android:layout_weight="1"
-                android:background="@color/colorAccent"
-                android:text="@string/back" />
 
             <Button
                 android:id="@+id/btnClear"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="@dimen/std1_half_margin"
+                android:layout_marginRight="@dimen/std1_half_margin"
                 android:layout_weight="1"
                 android:background="@color/black"
                 android:text="@string/clear" />
+
+            <Button
+                android:id="@+id/btnCheckStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="@dimen/std1_half_margin"
+                android:layout_weight="1"
+                android:background="@color/colorAccent"
+                android:text="@string/check_status" />
 
         </LinearLayout>
 

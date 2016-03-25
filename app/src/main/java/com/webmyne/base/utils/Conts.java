@@ -17,5 +17,8 @@ public class Conts {
     final public static  String HELPLINE_URL="json/HelpLine";
     final public static  String MANAGEMENT_URL="json/Management";
     final public static  String TOURIST_URL="json/Tourist";
+    final public static  String FETCH_COMPLAINT_STATUS_URL="json/ComplainStatus/{COMPLAINTID}";
+    final public static  String FETCH_COMPLAINT_INFO_URL="json/FetchComplainInfo";
+    final public static  String POST_COMPLAINT_URL="json/ComplainRegister";
     final public static  String TENDER_URL="json/Tender";
 }

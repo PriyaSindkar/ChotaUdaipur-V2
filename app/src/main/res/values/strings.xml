@@ -23,7 +23,7 @@
     <string name="Email_hint">Email</string>
     <string name="submit">SUBMIT</string>
     <string name="upload">UPLOAD IMAGE</string>
-    <string name="back">BACK</string>
+    <string name="check_status">CHECK STATUS</string>
     <string name="clear">CLEAR</string>
     <string name="newreg_hint">REGISTER NEW COMPLAINT</string>
     <string name="checkStatus_hint">Check Complaint Status</string>
@@ -62,6 +62,7 @@
 
     <string name="check_conn">Please Check Internet Connection</string>
 
-
+    <string name="image_uploaded">Image Selected For Upload</string>
+    <string name="remove_image">REMOVE IMAGE</string>
 
 </resources>
