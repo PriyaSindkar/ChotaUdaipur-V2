@@ -9,9 +9,11 @@ import android.widget.TextView;
 
 import com.webmyne.R;
 import com.webmyne.base.Tender.model.TenderDataObject;
+import com.webmyne.base.Tender.model.TenderResult;
 import com.webmyne.base.listeners.OnItemSelected;
 import com.webmyne.base.management.model.ManagementDataObject;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -19,9 +21,9 @@ import java.util.List;
  */
 public class TenderAdapter extends RecyclerView.Adapter<TenderAdapter.ManagementItemHolder> {
     private Context mContext;
-    private List<TenderDataObject> mData;
+    private List<TenderResult> mData;
     private OnItemSelected onItemSelected;
-    public TenderAdapter(Context _ctx, List<TenderDataObject> data) {
+    public TenderAdapter(Context _ctx, ArrayList<TenderResult> data) {
         this.mContext = _ctx;
         mData = data;
     }
@@ -34,11 +36,11 @@ public class TenderAdapter extends RecyclerView.Adapter<TenderAdapter.Management
 
     @Override
     public void onBindViewHolder(ManagementItemHolder holder, int position) {
-        holder.txtSrNo.setText("Sr No: "+mData.get(position).SrNo);
-        holder.txtTenderNo.setText("Tender No: "+mData.get(position).tenderNo);
-        holder.txtStartDate.setText("Start Date: "+mData.get(position).StrtDate);
+        holder.txtSrNo.setText("Sr No: "+String.valueOf(position + 1)+" ");
+        holder.txtTenderNo.setText("Tender No: "+mData.get(position).TenderNo);
+        holder.txtStartDate.setText("Start Date: "+mData.get(position).StartDate);
         holder.txtEndDate.setText("End Date: "+ mData.get(position).EndDate);
-        //holder.txtMobileNo.setText("Mobile: "+ mData.get(position).mobileNo);
+        holder.txtDesc.setText("Particulars: "+ mData.get(position).Description);
     }
 
 
@@ -53,7 +55,7 @@ public class TenderAdapter extends RecyclerView.Adapter<TenderAdapter.Management
     }
 
     public class ManagementItemHolder extends RecyclerView.ViewHolder {
-        private TextView txtSrNo, txtTenderNo, txtStartDate, txtEndDate;
+        private TextView txtSrNo, txtTenderNo, txtStartDate, txtEndDate,txtDesc;
 
         public ManagementItemHolder(View itemView) {
             super(itemView);
@@ -61,6 +63,7 @@ public class TenderAdapter extends RecyclerView.Adapter<TenderAdapter.Management
             txtTenderNo = (TextView) itemView.findViewById(R.id.txtTenderNo);
             txtStartDate = (TextView) itemView.findViewById(R.id.txtStartDate);
             txtEndDate = (TextView) itemView.findViewById(R.id.txtEndDate);
+            txtDesc = (TextView) itemView.findViewById(R.id.txtDesc);
 
         }
     }

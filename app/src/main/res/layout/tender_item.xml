@@ -47,6 +47,14 @@
             android:textColor="@color/black"
             android:textSize="@dimen/small_text" />
 
+        <TextView
+            android:id="@+id/txtDesc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/v_small_margin"
+            android:text="@string/dummy"
+            android:textColor="@color/black"
+            android:textSize="@dimen/small_text" />
     </LinearLayout>
 
 

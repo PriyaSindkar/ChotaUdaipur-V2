@@ -14,11 +14,15 @@ import android.text.Html;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.load.resource.drawable.GlideDrawable;
+import com.bumptech.glide.request.RequestListener;
+import com.bumptech.glide.request.target.Target;
 import com.webmyne.R;
 import com.webmyne.base.AboutUs.api.AboutusApi;
 import com.webmyne.base.AboutUs.model.AboutUsModel;
@@ -56,7 +60,7 @@ public class About_UsActivity extends AppCompatActivity implements View.OnClickL
     private Toolbar toolbar;
     private ImageView imgNew,img;
     private ProgressDialog dialog;
-
+    private ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,7 +88,7 @@ public class About_UsActivity extends AppCompatActivity implements View.OnClickL
         txtBack = (TextView) findViewById(R.id.txtBack);
         txtBack.setOnClickListener(this);
         img=(ImageView)findViewById(R.id.imageView2);
-
+        progressBar=(ProgressBar)findViewById(R.id.progressBar);
         txtAboutUs=(JustifiedTextView)findViewById(R.id.activity_main_jtv);
         txtAboutUs.setAlignment(Paint.Align.LEFT);
        // txtAboutUs.setText(R.string.aboutChhotaUdepur);
@@ -92,6 +96,7 @@ public class About_UsActivity extends AppCompatActivity implements View.OnClickL
         if(Functions.haveNetworkConnection(About_UsActivity.this)) {
             AboutusApi api = MyApplication.retrofit.create(AboutusApi.class);
             Call<AboutUsResp> call = api.getResp();
+            progressBar.setVisibility(View.VISIBLE);
             call.enqueue(new Callback<AboutUsResp>() {
                 @Override
                 public void onResponse(Call<AboutUsResp> call, Response<AboutUsResp> response) {
@@ -105,6 +110,18 @@ public class About_UsActivity extends AppCompatActivity implements View.OnClickL
                         Glide.with(getApplicationContext())
                                 .load(dataArray.get(0).getImage())
                                 .diskCacheStrategy(DiskCacheStrategy.ALL)
+                                .listener(new RequestListener<String, GlideDrawable>() {
+                                    @Override
+                                    public boolean onException(Exception e, String model, Target<GlideDrawable> target, boolean isFirstResource) {
+                                        return false;
+                                    }
+
+                                    @Override
+                                    public boolean onResourceReady(GlideDrawable resource, String model, Target<GlideDrawable> target, boolean isFromMemoryCache, boolean isFirstResource) {
+                                        progressBar.setVisibility(View.GONE);
+                                        return false;
+                                    }
+                                })
                                 .into(img);
                         //Picasso.with(getApplicationContext()).load(dataArray.get(0).getImage()).into(img);
                         //  img.setImageResource(Integer.parseInt(dataArray.get(0).getImage()));

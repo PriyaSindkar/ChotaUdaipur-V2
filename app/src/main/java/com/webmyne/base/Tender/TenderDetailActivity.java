@@ -19,7 +19,9 @@ import com.webmyne.R;
 import com.webmyne.base.Tender.adapter.TenderAdapter;
 import com.webmyne.base.Tender.adapter.TenderDetailAdapter;
 import com.webmyne.base.Tender.model.TenderDataObject;
+import com.webmyne.base.Tender.model.TenderResult;
 import com.webmyne.base.news.NewsActivity;
+import com.webmyne.base.utils.Functions;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,11 +35,15 @@ public class TenderDetailActivity extends AppCompatActivity implements View.OnCl
     private RecyclerView recyclerView;
     private TextView  txtBack;
     private List<String> data = new ArrayList<>();
+    private TenderResult t1;
+    ImageView download;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tender_detail_main);
+        t1= (TenderResult) getIntent().getSerializableExtra("tender");
+        Log.d("tender",t1.toString());
         init_toolbar();
         init();
 
@@ -46,6 +52,18 @@ public class TenderDetailActivity extends AppCompatActivity implements View.OnCl
     private void init() {
         txtBack = (TextView) findViewById(R.id.txtBack);
         txtBack.setOnClickListener(this);
+
+        download=(ImageView)findViewById(R.id.download);
+        download.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(TenderDetailActivity.this,"downloading....",Toast.LENGTH_SHORT).show();
+                Boolean result=Functions.isDownloadManagerAvailable(TenderDetailActivity.this);
+                if (result)
+                    Functions.downloadFile(TenderDetailActivity.this, t1.Attachment);
+            }
+        });
+
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);
@@ -70,12 +88,18 @@ public class TenderDetailActivity extends AppCompatActivity implements View.OnCl
 
     private void setData() {
         //getIntent().getSerializableExtra("MyClass");
-        String desc="Description : "+R.string.lorem_ipsum;
+        String desc="Description : "+ t1.Description;
         data.add(desc);
-        String tenderno="Tender Notice No : "+getIntent().getStringExtra("tenderNo");
+        String tenderno="Tender Notice No : "+ t1.TenderNo;
         data.add(tenderno);
-        String tenderdate="Tender Notice Date : "+getIntent().getStringExtra("StrtDate");
+        String tenderdate="Tender Notice Date : "+t1.EndDate;
         data.add(tenderdate);
+        String tenderAvailable="Available From : "+t1.StartDate + " TO "+ t1.EndDate;
+        data.add(tenderAvailable);
+        String tenderStartdate="Submission Date : "+t1.StartDate;
+        data.add(tenderStartdate);
+        String Mode="Mode Of Submission : "+t1.ModeOfSubmission;
+        data.add(Mode);
        /* data.add(getIntent().getStringExtra("tenderNo"));
         data.add(getIntent().getStringExtra("StrtDate"));
         data.add(getIntent().getStringExtra("EndDate"));*/

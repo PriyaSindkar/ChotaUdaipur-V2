@@ -36,7 +36,7 @@ public class InfoDialog extends Dialog {
 
         txtTitle.setText(touristResult.PlaceName);
         txtDesc.setText(touristResult.Description);
-        Log.d("desc",touristResult.PlaceName + " || "+touristResult.Description);
+        //Log.d("desc",touristResult.PlaceName + " || "+touristResult.Description);
         imgCancel = (ImageView) findViewById(R.id.imgCancel);
         imgCancel.setOnClickListener(new View.OnClickListener() {
             @Override

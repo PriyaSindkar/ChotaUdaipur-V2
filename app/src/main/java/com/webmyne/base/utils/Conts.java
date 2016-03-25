@@ -17,4 +17,5 @@ public class Conts {
     final public static  String HELPLINE_URL="json/HelpLine";
     final public static  String MANAGEMENT_URL="json/Management";
     final public static  String TOURIST_URL="json/Tourist";
+    final public static  String TENDER_URL="json/Tender";
 }
