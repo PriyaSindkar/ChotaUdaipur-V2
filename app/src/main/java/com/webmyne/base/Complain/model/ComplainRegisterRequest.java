@@ -5,7 +5,7 @@ package com.webmyne.base.Complain.model;
  */
 public class ComplainRegisterRequest {
     public String Address, DateGenerated, Description, DeviceID, DeviceType, Email, Image, Mobile, PersonName, Zipcode;
-    public int CategoryID, CategoryTypeID, StatusID,Ward;
+    public int CategoryID, CategoryTypeID, StatusID, Ward;
 
     public String getAddress() {
         return Address;
