@@ -75,6 +75,10 @@ public class TenderActivity extends AppCompatActivity implements View.OnClickLis
         txtBack = (TextView) findViewById(R.id.txtBack);
         txtBack.setOnClickListener(this);
         header = (TextView) findViewById(R.id.header);
+        
+        recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(linearLayoutManager);
 
         if(Functions.haveNetworkConnection(TenderActivity.this)) {
             TenderApi api = MyApplication.retrofit.create(TenderApi.class);
@@ -85,13 +89,8 @@ public class TenderActivity extends AppCompatActivity implements View.OnClickLis
 
                     try {
                         // Log.e("onResponse", response.body().getAchievementResultl().toString());
-                        ArrayList<TenderResult> dataArray = response.body().getTenderResult();
-                        header.setText(dataArray.size() + " record found");
-                        for(int i=0;i<dataArray.size();i++)
-                        {
-                            // Log.e("onResponse", dataArray.get(i).toString());
-                            data1.add(dataArray.get(i));
-                        }
+                         data1 = response.body().getTenderResult();
+
                         setDataAdapter();
                         //Log.e("onResponse", data1.toString());
                     } catch (Exception e) {
@@ -124,10 +123,8 @@ public class TenderActivity extends AppCompatActivity implements View.OnClickLis
 
 
     private void setDataAdapter(){
-        recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(linearLayoutManager);
-        setData();
+        header.setText(data1.size()+ " RECORDS FOUND");
+       // setData();
         adapter = new TenderAdapter(this, data1);
         recyclerView.setAdapter(adapter);
         recyclerView.addOnItemTouchListener(new RecyclerTouchListener(getApplicationContext(), recyclerView, new ClickListener() {

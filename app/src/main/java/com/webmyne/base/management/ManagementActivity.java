@@ -64,6 +64,10 @@ public class ManagementActivity extends AppCompatActivity implements View.OnClic
         txtBack = (TextView) findViewById(R.id.txtBack);
         txtBack.setOnClickListener(this);
 
+        recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(linearLayoutManager);
+
         dataArray1=new ArrayList<>();
         if(Functions.haveNetworkConnection(ManagementActivity.this)) {
             MangamentApi api = MyApplication.retrofit.create(MangamentApi.class);
@@ -74,13 +78,13 @@ public class ManagementActivity extends AppCompatActivity implements View.OnClic
 
                     try {
                         // Log.e("onResponse", response.body().getAchievementResultl().toString());
-                        ArrayList<ManagementResult> dataArray = response.body().getManagementResult();
+                         dataArray1 = response.body().getManagementResult();
 
-                        for(int i=0;i<dataArray.size();i++)
+                        /*for(int i=0;i<dataArray.size();i++)
                         {
                             // Log.e("onResponse", dataArray.get(i).toString());
                             dataArray1.add(dataArray.get(i));
-                        }
+                        }*/
                         setAdapterData();
                         //   Log.e("onResponse", achivements.toString());
                     } catch (Exception e) {
@@ -112,9 +116,7 @@ public class ManagementActivity extends AppCompatActivity implements View.OnClic
 
     }
     private void setAdapterData(){
-        recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(linearLayoutManager);
+
         //setData();
         adapter = new ManagementAdapter(this, dataArray1);
         recyclerView.setAdapter(adapter);

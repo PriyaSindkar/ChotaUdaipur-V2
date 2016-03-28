@@ -56,6 +56,10 @@ public class CurrentJobsActivity extends AppCompatActivity implements View.OnCli
         txtTitle.setText("CURRENT JOBS");
 
         header = (TextView) findViewById(R.id.header);
+        
+        recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(linearLayoutManager);
 
         if(Functions.haveNetworkConnection(CurrentJobsActivity.this)) {
             CurrentJobApi api = MyApplication.retrofit.create(CurrentJobApi.class);
@@ -66,13 +70,12 @@ public class CurrentJobsActivity extends AppCompatActivity implements View.OnCli
 
                     try {
                         // Log.e("onResponse", response.body().getAchievementResultl().toString());
-                        ArrayList<FetchJobResult> dataArray = response.body().getFetchJobResult();
-                        header.setText(dataArray.size() + " jobs found");
-                        for(int i=0;i<dataArray.size();i++)
+                         data1 = response.body().getFetchJobResult();
+                       /* for(int i=0;i<dataArray.size();i++)
                         {
                             // Log.e("onResponse", dataArray.get(i).toString());
                             data1.add(dataArray.get(i));
-                        }
+                        }*/
 
                         setAdapterData();
                         //   Log.e("onResponse", achivements.toString());
@@ -104,9 +107,7 @@ public class CurrentJobsActivity extends AppCompatActivity implements View.OnCli
     }
 
     private void setAdapterData(){
-        recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(linearLayoutManager);
+        header.setText(data1.size()+" JOB FOUND");
         adapter = new CurrentJobsAdapter(this, data1);
         recyclerView.setAdapter(adapter);
     }

@@ -60,6 +60,11 @@ public class Achievement_Activity extends AppCompatActivity implements View.OnCl
     private void init() {
         txtBack = (TextView) findViewById(R.id.txtBack);
         txtBack.setOnClickListener(this);
+        recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(linearLayoutManager);
+
+
         achivements=new ArrayList<AchievementResult>();
         if(Functions.haveNetworkConnection(Achievement_Activity.this)) {
             AchievementApi api = MyApplication.retrofit.create(AchievementApi.class);
@@ -69,13 +74,14 @@ public class Achievement_Activity extends AppCompatActivity implements View.OnCl
                 public void onResponse(Call<AchievementResp> call, Response<AchievementResp> response) {
                     try {
                        // Log.e("onResponse", response.body().getAchievementResultl().toString());
-                        ArrayList<AchievementResult> dataArray = response.body().getAchievementResultl();
+                        achivements=response.body().getAchievementResultl();
+                        /*ArrayList<AchievementResult> dataArray = response.body().getAchievementResultl();
 
                         for(int i=0;i<dataArray.size();i++)
                         {
                            // Log.e("onResponse", dataArray.get(i).toString());
                             achivements.add(dataArray.get(i));
-                        }
+                        }*/
                         setAdapterData();
 
                      //   Log.e("onResponse", achivements.toString());
@@ -108,9 +114,6 @@ public class Achievement_Activity extends AppCompatActivity implements View.OnCl
     }
 
     private void setAdapterData(){
-        recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(linearLayoutManager);
 
         adapter = new AchievementAdapter(Achievement_Activity.this,achivements);
         recyclerView.setAdapter(adapter);

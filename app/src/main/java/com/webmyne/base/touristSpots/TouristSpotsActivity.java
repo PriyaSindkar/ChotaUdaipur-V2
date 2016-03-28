@@ -44,20 +44,19 @@ public class TouristSpotsActivity extends AppCompatActivity implements View.OnCl
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_news);
-        Toolbar toolbar=(Toolbar)findViewById(R.id.toolbar);
-        ImageView imgNew= (ImageView) toolbar.findViewById(R.id.imgNews);
-        imgNew.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), NewsActivity.class);
-                startActivity(intent);
-            }
-        });
+        
+        init_toolbar();
+        init();
+    }
 
+    private void init() {
         txtTitle = (TextView) findViewById(R.id.txtTitle);
         txtTitle.setText("TOURIST SPOTS");
         txtBack = (TextView) findViewById(R.id.txtBack);
         txtBack.setOnClickListener(this);
+        recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2);
+        recyclerView.setLayoutManager(gridLayoutManager);
 
         dataArray1=new ArrayList<>();
         if(Functions.haveNetworkConnection(TouristSpotsActivity.this)) {
@@ -69,14 +68,10 @@ public class TouristSpotsActivity extends AppCompatActivity implements View.OnCl
 
                     try {
                         // Log.e("onResponse", response.body().getAchievementResultl().toString());
-                        ArrayList<TouristResult> dataArray = response.body().getTouristResult();
-                        for(int i=0;i<dataArray.size();i++)
-                        {
-                            // Log.e("onResponse", dataArray.get(i).toString());
-                            dataArray1.add(dataArray.get(i));
-                        }
+                        dataArray1 = response.body().getTouristResult();
+
                         setAdapterData();
-                        Log.e("onResponse", dataArray1.toString());
+                        //Log.e("onResponse", dataArray1.toString());
                     } catch (Exception e) {
                         Log.e("### exc", e.toString());
                     }
@@ -100,15 +95,24 @@ public class TouristSpotsActivity extends AppCompatActivity implements View.OnCl
                 }
             }, 2500);
         }
-        
 
     }
 
+    private void init_toolbar() {
+        Toolbar toolbar=(Toolbar)findViewById(R.id.toolbar);
+        ImageView imgNew= (ImageView) toolbar.findViewById(R.id.imgNews);
+        imgNew.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), NewsActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
+
     private void setAdapterData(){
-        recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2);
+
         adapter = new TouristSpotsAdapter(this,dataArray1);
-        recyclerView.setLayoutManager(gridLayoutManager);
         recyclerView.setAdapter(adapter);
     }
 

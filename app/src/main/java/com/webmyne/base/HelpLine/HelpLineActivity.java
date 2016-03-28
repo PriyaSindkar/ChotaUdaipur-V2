@@ -60,6 +60,10 @@ public class HelpLineActivity extends AppCompatActivity implements View.OnClickL
         txtBack = (TextView) findViewById(R.id.txtBack);
         txtBack.setOnClickListener(this);
 
+        recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(linearLayoutManager);
+
         helpline=new ArrayList<HelpLineResult>();
         if(Functions.haveNetworkConnection(HelpLineActivity.this)) {
             HelpLineApi api = MyApplication.retrofit.create(HelpLineApi.class);
@@ -70,13 +74,13 @@ public class HelpLineActivity extends AppCompatActivity implements View.OnClickL
 
                     try {
                         // Log.e("onResponse", response.body().getAchievementResultl().toString());
-                        ArrayList<HelpLineResult> dataArray = response.body().getHelpLineResult();
+                         helpline = response.body().getHelpLineResult();
 
-                        for(int i=0;i<dataArray.size();i++)
+                        /*for(int i=0;i<dataArray.size();i++)
                         {
                             // Log.e("onResponse", dataArray.get(i).toString());
                             helpline.add(dataArray.get(i));
-                        }
+                        }*/
                         setDataAdapter();
 
                         //   Log.e("onResponse", achivements.toString());
@@ -110,9 +114,6 @@ public class HelpLineActivity extends AppCompatActivity implements View.OnClickL
     }
 
     private void setDataAdapter(){
-        recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(linearLayoutManager);
 
         adapter = new HelpLineAdapter(helpline);
         recyclerView.setAdapter(adapter);

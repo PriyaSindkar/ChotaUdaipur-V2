@@ -54,6 +54,9 @@ public class NewsActivity extends AppCompatActivity implements View.OnClickListe
         txtTitle.setText(R.string.news);
         txtBack = (TextView) findViewById(R.id.txtBack);
         txtBack.setOnClickListener(this);
+        recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(linearLayoutManager);
 
         if(Functions.haveNetworkConnection(NewsActivity.this)) {
             NewsApi api = MyApplication.retrofit.create(NewsApi.class);
@@ -64,12 +67,12 @@ public class NewsActivity extends AppCompatActivity implements View.OnClickListe
 
                     try {
                         // Log.e("onResponse", response.body().getAchievementResultl().toString());
-                        ArrayList<FetchNewsResult> dataArray = response.body().getFetchNewsResult();
-                        for(int i=0;i<dataArray.size();i++)
+                        data1 = response.body().getFetchNewsResult();
+                        /*for(int i=0;i<dataArray.size();i++)
                         {
                              Log.e("onResponse", dataArray.get(i).toString());
                             data1.add(dataArray.get(i));
-                        }
+                        }*/
 
                         setAdapterData();
                            //Log.e("onResponse", data1.toString());
@@ -96,14 +99,10 @@ public class NewsActivity extends AppCompatActivity implements View.OnClickListe
                 }
             }, 2500);
         }
-
-
     }
 
     private void setAdapterData(){
-        recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(linearLayoutManager);
+
         adapter = new NewsAdapter(NewsActivity.this,data1);
         recyclerView.setAdapter(adapter);
     }

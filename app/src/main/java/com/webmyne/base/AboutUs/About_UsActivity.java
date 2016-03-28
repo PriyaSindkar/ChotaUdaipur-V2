@@ -84,7 +84,7 @@ public class About_UsActivity extends AppCompatActivity implements View.OnClickL
                 @Override
                 public void onResponse(Call<AboutUsResp> call, Response<AboutUsResp> response) {
 
-                   // Log.e("onResponse", response.body().toString());
+                    Log.e("onResponse", response.body().toString());
 
                     try {
                         ArrayList<AboutUsModel> dataArray = response.body().getAboutUSResult();
@@ -111,7 +111,6 @@ public class About_UsActivity extends AppCompatActivity implements View.OnClickL
                     } catch (Exception e) {
                         Log.e("### exc", e.toString());
                     }
-
                 }
 
                 @Override
