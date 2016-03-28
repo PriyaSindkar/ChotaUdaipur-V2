@@ -57,7 +57,7 @@ public class TenderActivity extends AppCompatActivity implements View.OnClickLis
     private TenderAdapter adapter;
     private RecyclerView recyclerView;
     private TextView  txtBack, header;
-    private List<TenderDataObject> data = new ArrayList<>();
+  //  private List<TenderDataObject> data = new ArrayList<>();
     private ArrayList<TenderResult> data1 = new ArrayList<>();
     private ProgressDialog dialog;
 
@@ -116,9 +116,6 @@ public class TenderActivity extends AppCompatActivity implements View.OnClickLis
                 }
             }, 2500);
         }
-        
-        
-
     }
 
 
@@ -132,16 +129,9 @@ public class TenderActivity extends AppCompatActivity implements View.OnClickLis
             public void onClick(View view, int position) {
 
                 //Toast.makeText(getApplicationContext(), data.get(position).getSrNo() + " is selected!", Toast.LENGTH_SHORT).show();
-                //Intent i = new Intent(context, EditActivity.class);
-                // i.putExtra("Editing", details);
-                // startActivity(i);
                 TenderResult t1=data1.get(position);
                 Intent intent=new Intent(getApplicationContext(),TenderDetailActivity.class);
                 intent.putExtra("tender", t1);
-                /*intent.putExtra("SrNo",data.get(position).SrNo);
-                intent.putExtra("tenderNo",data.ge  t(position).tenderNo);
-                intent.putExtra("StrtDate",data.get(position).StrtDate);
-                intent.putExtra("EndDate",data.get(position).EndDate);*/
                 startActivity(intent);
             }
 
@@ -164,14 +154,14 @@ public class TenderActivity extends AppCompatActivity implements View.OnClickLis
         });
     }
 
-    private void setData() {
+  /*  private void setData() {
         TenderDataObject TenderDataObject = new TenderDataObject("1", "AS.C.E./WestZone/13/2016-17",  "5/20/2016 11:00AM", "6/23/2016 5:00 PM");
         data.add(TenderDataObject);
         TenderDataObject = new TenderDataObject("2", "AS.C.E./WestZone/13/2016-17", "5/20/2016 11:00AM", "6/23/2016 5:00 PM");
         data.add(TenderDataObject);
         TenderDataObject = new TenderDataObject("3", "AS.C.E./WestZone/13/2016-17", "5/20/2016 11:00AM", "6/23/2016 5:00 PM");
         data.add(TenderDataObject);
-    }
+    }*/
 
     @Override
     public void onClick(View v) {
