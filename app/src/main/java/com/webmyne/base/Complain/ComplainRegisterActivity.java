@@ -271,6 +271,7 @@ public class ComplainRegisterActivity extends AppCompatActivity implements View.
 
     private void setData(FetchComplainInfoResult infoResult) {
         categoryModels = new ArrayList<>();
+        Category = new ArrayList<>();
         ward = new ArrayList<>();
         categoryModels = infoResult.lstComplaintCategory;
         for (ComplainCategoryModel complainCategoryModel : infoResult.lstComplaintCategory) {

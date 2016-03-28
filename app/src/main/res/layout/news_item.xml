@@ -22,7 +22,7 @@
 
             <FrameLayout
                 android:layout_width="0sp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:layout_gravity="center"
                 android:layout_margin="@dimen/std_margin">
@@ -30,7 +30,7 @@
                 <com.webmyne.base.ui.SquareImageView
                     android:id="@+id/img"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:scaleType="fitXY"
                     android:src="@drawable/image_1" />
 

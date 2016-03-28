@@ -52,22 +52,26 @@ public class ManagementAdapter extends RecyclerView.Adapter<ManagementAdapter.Ma
         holder.txtOfficeNo.setText("Office: " + mData.get(position).OfficeNo);
         holder.txtMobileNo.setText("Mobile: " + mData.get(position).MobileNo);
 
-        Glide.with(mContext)
-                .load(mData.get(position).getImage())
-                .diskCacheStrategy(DiskCacheStrategy.ALL)
-                .listener(new RequestListener<String, GlideDrawable>() {
-                    @Override
-                    public boolean onException(Exception e, String model, Target<GlideDrawable> target, boolean isFirstResource) {
-                        return false;
-                    }
+        if(mData.get(position).getImage() != null) {
 
-                    @Override
-                    public boolean onResourceReady(GlideDrawable resource, String model, Target<GlideDrawable> target, boolean isFromMemoryCache, boolean isFirstResource) {
-                        holder.progressBar.setVisibility(View.GONE);
-                        return false;
-                    }
-                })
-                .into(holder.img_profile);
+            Glide.with(mContext)
+                    .load(mData.get(position).getImage())
+                    .diskCacheStrategy(DiskCacheStrategy.ALL)
+                    .listener(new RequestListener<String, GlideDrawable>() {
+                        @Override
+                        public boolean onException(Exception e, String model, Target<GlideDrawable> target, boolean isFirstResource) {
+                            return false;
+                        }
+
+                        @Override
+                        public boolean onResourceReady(GlideDrawable resource, String model, Target<GlideDrawable> target, boolean isFromMemoryCache, boolean isFirstResource) {
+                            holder.img_profile.setPadding(0, 0, 0, 0);
+                            holder.progressBar.setVisibility(View.GONE);
+                            return false;
+                        }
+                    })
+                    .into(holder.img_profile);
+        }
     }
 
 
