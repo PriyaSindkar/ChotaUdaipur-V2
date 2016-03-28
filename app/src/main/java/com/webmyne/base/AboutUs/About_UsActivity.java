@@ -87,30 +87,32 @@ public class About_UsActivity extends AppCompatActivity implements View.OnClickL
                     Log.e("onResponse", response.body().toString());
 
                     try {
-                        ArrayList<AboutUsModel> dataArray = response.body().getAboutUSResult();
-                        txtAboutUs.setText(String.valueOf(Html.fromHtml(dataArray.get(0).getDescription())));
-                        // Toast.makeText(About_UsActivity.this, "" + dataArray.get(0).getImage(), Toast.LENGTH_SHORT).show();
-                        Glide.with(getApplicationContext())
-                                .load(dataArray.get(0).getImage())
-                                .diskCacheStrategy(DiskCacheStrategy.ALL)
-                                .listener(new RequestListener<String, GlideDrawable>() {
-                                    @Override
-                                    public boolean onException(Exception e, String model, Target<GlideDrawable> target, boolean isFirstResource) {
-                                        return false;
-                                    }
+                        if (response.body().getAboutUSResult() != null) {
+                            ArrayList<AboutUsModel> dataArray = response.body().getAboutUSResult();
+                            txtAboutUs.setText(String.valueOf(Html.fromHtml(dataArray.get(0).getDescription())));
+                            // Toast.makeText(About_UsActivity.this, "" + dataArray.get(0).getImage(), Toast.LENGTH_SHORT).show();
+                            Glide.with(getApplicationContext())
+                                    .load(dataArray.get(0).getImage())
+                                    .diskCacheStrategy(DiskCacheStrategy.ALL)
+                                    .listener(new RequestListener<String, GlideDrawable>() {
+                                        @Override
+                                        public boolean onException(Exception e, String model, Target<GlideDrawable> target, boolean isFirstResource) {
+                                            return false;
+                                        }
 
-                                    @Override
-                                    public boolean onResourceReady(GlideDrawable resource, String model, Target<GlideDrawable> target, boolean isFromMemoryCache, boolean isFirstResource) {
-                                        progressBar.setVisibility(View.GONE);
-                                        return false;
-                                    }
-                                })
-                                .into(img);
-                        //Picasso.with(getApplicationContext()).load(dataArray.get(0).getImage()).into(img);
-                        //  img.setImageResource(Integer.parseInt(dataArray.get(0).getImage()));
-                    } catch (Exception e) {
-                        Log.e("### exc", e.toString());
-                    }
+                                        @Override
+                                        public boolean onResourceReady(GlideDrawable resource, String model, Target<GlideDrawable> target, boolean isFromMemoryCache, boolean isFirstResource) {
+                                            progressBar.setVisibility(View.GONE);
+                                            return false;
+                                        }
+                                    })
+                                    .into(img);
+                        }
+                            //Picasso.with(getApplicationContext()).load(dataArray.get(0).getImage()).into(img);
+                            //  img.setImageResource(Integer.parseInt(dataArray.get(0).getImage()));
+                        }catch(Exception e){
+                            Log.e("### exc", e.toString());
+                        }
                 }
 
                 @Override

@@ -16,8 +16,6 @@ public class MyApplication extends Application {
     public static Retrofit retrofit;
     private static MyApplication sInstance;
 
-
-
     @Override
     public void onCreate() {
         super.onCreate();

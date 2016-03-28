@@ -67,7 +67,9 @@ public class NewsActivity extends AppCompatActivity implements View.OnClickListe
 
                     try {
                         // Log.e("onResponse", response.body().getAchievementResultl().toString());
-                        data1 = response.body().getFetchNewsResult();
+                        if (response.body().getFetchNewsResult() != null) {
+                            data1 = response.body().getFetchNewsResult();
+                        }
                         /*for(int i=0;i<dataArray.size();i++)
                         {
                              Log.e("onResponse", dataArray.get(i).toString());

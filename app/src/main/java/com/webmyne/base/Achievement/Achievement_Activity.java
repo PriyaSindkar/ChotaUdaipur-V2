@@ -74,14 +74,10 @@ public class Achievement_Activity extends AppCompatActivity implements View.OnCl
                 public void onResponse(Call<AchievementResp> call, Response<AchievementResp> response) {
                     try {
                        // Log.e("onResponse", response.body().getAchievementResultl().toString());
-                        achivements=response.body().getAchievementResultl();
-                        /*ArrayList<AchievementResult> dataArray = response.body().getAchievementResultl();
+                        if (response.body().getAchievementResultl() != null) {
+                            achivements = response.body().getAchievementResultl();
+                        }
 
-                        for(int i=0;i<dataArray.size();i++)
-                        {
-                           // Log.e("onResponse", dataArray.get(i).toString());
-                            achivements.add(dataArray.get(i));
-                        }*/
                         setAdapterData();
 
                      //   Log.e("onResponse", achivements.toString());

@@ -74,7 +74,9 @@ public class HelpLineActivity extends AppCompatActivity implements View.OnClickL
 
                     try {
                         // Log.e("onResponse", response.body().getAchievementResultl().toString());
-                         helpline = response.body().getHelpLineResult();
+                        if (response.body().HelpLineResult != null) {
+                            helpline = response.body().getHelpLineResult();
+                        }
 
                         /*for(int i=0;i<dataArray.size();i++)
                         {

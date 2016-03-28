@@ -258,11 +258,8 @@ public class ComplainRegisterActivity extends AppCompatActivity implements View.
                 public void onResponse(Call<MainFetchComplainInfo> call, Response<MainFetchComplainInfo> response) {
 
                     if (response.body().FetchComplainInfoResult != null) {
-
                         setData(response.body().FetchComplainInfoResult);
-
                     }
-
                 }
 
                 @Override
@@ -339,7 +336,6 @@ public class ComplainRegisterActivity extends AppCompatActivity implements View.
         });
         builder.show();
     }
-
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == Activity.RESULT_OK) {
@@ -441,6 +437,4 @@ public class ComplainRegisterActivity extends AppCompatActivity implements View.
         });
 
     }
-
-
 }

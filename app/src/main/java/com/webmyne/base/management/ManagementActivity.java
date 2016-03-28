@@ -78,7 +78,9 @@ public class ManagementActivity extends AppCompatActivity implements View.OnClic
 
                     try {
                         // Log.e("onResponse", response.body().getAchievementResultl().toString());
-                         dataArray1 = response.body().getManagementResult();
+                        if (response.body().getManagementResult() != null) {
+                            dataArray1 = response.body().getManagementResult();
+                        }
 
                         /*for(int i=0;i<dataArray.size();i++)
                         {

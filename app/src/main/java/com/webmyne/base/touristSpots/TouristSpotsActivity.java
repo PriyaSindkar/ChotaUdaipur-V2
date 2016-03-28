@@ -68,8 +68,8 @@ public class TouristSpotsActivity extends AppCompatActivity implements View.OnCl
 
                     try {
                         // Log.e("onResponse", response.body().getAchievementResultl().toString());
-                        dataArray1 = response.body().getTouristResult();
-
+                        if (response.body().getTouristResult() != null) {
+                        dataArray1 = response.body().getTouristResult();}
                         setAdapterData();
                         //Log.e("onResponse", dataArray1.toString());
                     } catch (Exception e) {

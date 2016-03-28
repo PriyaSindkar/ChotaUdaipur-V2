@@ -69,8 +69,9 @@ public class CurrentJobsActivity extends AppCompatActivity implements View.OnCli
                 public void onResponse(Call<CurrentJobResp> call, Response<CurrentJobResp> response) {
 
                     try {
-                        // Log.e("onResponse", response.body().getAchievementResultl().toString());
-                         data1 = response.body().getFetchJobResult();
+                        if (response.body().FetchJobResult != null) {
+                            data1 = response.body().getFetchJobResult();
+                        }
                        /* for(int i=0;i<dataArray.size();i++)
                         {
                             // Log.e("onResponse", dataArray.get(i).toString());
@@ -101,10 +102,10 @@ public class CurrentJobsActivity extends AppCompatActivity implements View.OnCli
                     finish();
                 }
             }, 2500);
+            }
+
+
         }
-
-
-    }
 
     private void setAdapterData(){
         header.setText(data1.size()+" JOB FOUND");

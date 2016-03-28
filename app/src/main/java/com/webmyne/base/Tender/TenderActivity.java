@@ -89,8 +89,9 @@ public class TenderActivity extends AppCompatActivity implements View.OnClickLis
 
                     try {
                         // Log.e("onResponse", response.body().getAchievementResultl().toString());
-                         data1 = response.body().getTenderResult();
-
+                        if (response.body().getTenderResult() != null) {
+                            data1 = response.body().getTenderResult();
+                        }
                         setDataAdapter();
                         //Log.e("onResponse", data1.toString());
                     } catch (Exception e) {
@@ -129,8 +130,8 @@ public class TenderActivity extends AppCompatActivity implements View.OnClickLis
             public void onClick(View view, int position) {
 
                 //Toast.makeText(getApplicationContext(), data.get(position).getSrNo() + " is selected!", Toast.LENGTH_SHORT).show();
-                TenderResult t1=data1.get(position);
-                Intent intent=new Intent(getApplicationContext(),TenderDetailActivity.class);
+                TenderResult t1 = data1.get(position);
+                Intent intent = new Intent(getApplicationContext(), TenderDetailActivity.class);
                 intent.putExtra("tender", t1);
                 startActivity(intent);
             }
@@ -148,7 +149,7 @@ public class TenderActivity extends AppCompatActivity implements View.OnClickLis
         imgNew.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(getApplicationContext(), NewsActivity.class);
+                Intent intent = new Intent(getApplicationContext(), NewsActivity.class);
                 startActivity(intent);
             }
         });
