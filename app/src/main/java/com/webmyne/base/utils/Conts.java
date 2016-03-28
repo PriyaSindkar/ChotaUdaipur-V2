@@ -8,7 +8,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 public class Conts {
     //http://ws-srv-net.in.webmyne.com/Applications/CUSevaSadan/CUSevaSadan_WS/Service.svc/
-    final public static  String BASE_URL="http://ws-srv-net.in.webmyne.com/Applications/CUSevaSadan/CUSevaSadan_WS/Service.svc/";
+    final public static  String BASE_URL="http://ws-srv-net.in.webmyne.com/Applications/pointlesspaintings/CUSevaSadan_WS/Service.svc/";
     final public static  String ABOUT_US_URL="json/AboutUS";
     final public static  String ACHIVEMENT_URL="json/Achievement";
     final public static  String CURRENTJOB_URL="json/FetchJob";
