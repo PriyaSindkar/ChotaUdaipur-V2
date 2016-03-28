@@ -51,27 +51,29 @@ public class AchievementAdapter extends RecyclerView.Adapter<AchievementAdapter.
         handler.postDelayed(new Runnable() {
             public void run() {
                 holder.progressBar.setVisibility(View.GONE);
-               // holder.img.setBackgroundColor(c.getResources().getColor(R.color.profile_bg));
+                // holder.img.setBackgroundColor(c.getResources().getColor(R.color.profile_bg));
             }
         }, 5000);
 
-        Glide.with(c)
-                .load(achivements.get(position).getImage())
-                .diskCacheStrategy(DiskCacheStrategy.ALL)
-                .listener(new RequestListener<String, GlideDrawable>() {
-                    @Override
-                    public boolean onException(Exception e, String model, Target<GlideDrawable> target, boolean isFirstResource) {
-                        return false;
-                    }
+        if(achivements.get(position).getImage() != null) {
+            Glide.with(c)
+                    .load(achivements.get(position).getImage())
+                    .diskCacheStrategy(DiskCacheStrategy.ALL)
+                    .listener(new RequestListener<String, GlideDrawable>() {
+                        @Override
+                        public boolean onException(Exception e, String model, Target<GlideDrawable> target, boolean isFirstResource) {
+                            return false;
+                        }
 
-                    @Override
-                    public boolean onResourceReady(GlideDrawable resource, String model, Target<GlideDrawable> target, boolean isFromMemoryCache, boolean isFirstResource) {
-                        holder.progressBar.setVisibility(View.GONE);
-                        return false;
-                    }
-                })
-                .into(holder.img);
-       // holder.img;
+                        @Override
+                        public boolean onResourceReady(GlideDrawable resource, String model, Target<GlideDrawable> target, boolean isFromMemoryCache, boolean isFirstResource) {
+                            holder.img.setPadding(0,0,0,0);
+                            holder.progressBar.setVisibility(View.GONE);
+                            return false;
+                        }
+                    })
+                    .into(holder.img);
+        }
     }
 
 

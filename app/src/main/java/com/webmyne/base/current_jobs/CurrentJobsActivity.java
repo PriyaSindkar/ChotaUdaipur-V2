@@ -35,7 +35,7 @@ import retrofit2.Response;
 public class CurrentJobsActivity extends AppCompatActivity implements View.OnClickListener{
     private CurrentJobsAdapter adapter;
     private RecyclerView recyclerView;
-    private TextView txtTitle, txtBack;
+    private TextView txtTitle, txtBack, header;
     private List<FetchJobResult> data1 = new ArrayList<>();
     private ProgressDialog dialog;
 
@@ -55,6 +55,8 @@ public class CurrentJobsActivity extends AppCompatActivity implements View.OnCli
         txtTitle = (TextView) findViewById(R.id.txtTitle);
         txtTitle.setText("CURRENT JOBS");
 
+        header = (TextView) findViewById(R.id.header);
+
         if(Functions.haveNetworkConnection(CurrentJobsActivity.this)) {
             CurrentJobApi api = MyApplication.retrofit.create(CurrentJobApi.class);
             Call<CurrentJobResp> call = api.getResp();
@@ -65,6 +67,7 @@ public class CurrentJobsActivity extends AppCompatActivity implements View.OnCli
                     try {
                         // Log.e("onResponse", response.body().getAchievementResultl().toString());
                         ArrayList<FetchJobResult> dataArray = response.body().getFetchJobResult();
+                        header.setText(dataArray.size() + " jobs found");
                         for(int i=0;i<dataArray.size();i++)
                         {
                             // Log.e("onResponse", dataArray.get(i).toString());

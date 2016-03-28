@@ -67,7 +67,6 @@ public class Achievement_Activity extends AppCompatActivity implements View.OnCl
             call.enqueue(new Callback<AchievementResp>() {
                 @Override
                 public void onResponse(Call<AchievementResp> call, Response<AchievementResp> response) {
-
                     try {
                        // Log.e("onResponse", response.body().getAchievementResultl().toString());
                         ArrayList<AchievementResult> dataArray = response.body().getAchievementResultl();

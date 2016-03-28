@@ -56,7 +56,7 @@ public class TenderActivity extends AppCompatActivity implements View.OnClickLis
 
     private TenderAdapter adapter;
     private RecyclerView recyclerView;
-    private TextView  txtBack;
+    private TextView  txtBack, header;
     private List<TenderDataObject> data = new ArrayList<>();
     private ArrayList<TenderResult> data1 = new ArrayList<>();
     private ProgressDialog dialog;
@@ -74,6 +74,7 @@ public class TenderActivity extends AppCompatActivity implements View.OnClickLis
 
         txtBack = (TextView) findViewById(R.id.txtBack);
         txtBack.setOnClickListener(this);
+        header = (TextView) findViewById(R.id.header);
 
         if(Functions.haveNetworkConnection(TenderActivity.this)) {
             TenderApi api = MyApplication.retrofit.create(TenderApi.class);
@@ -85,6 +86,7 @@ public class TenderActivity extends AppCompatActivity implements View.OnClickLis
                     try {
                         // Log.e("onResponse", response.body().getAchievementResultl().toString());
                         ArrayList<TenderResult> dataArray = response.body().getTenderResult();
+                        header.setText(dataArray.size() + " record found");
                         for(int i=0;i<dataArray.size();i++)
                         {
                             // Log.e("onResponse", dataArray.get(i).toString());
