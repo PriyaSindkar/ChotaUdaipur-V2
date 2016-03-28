@@ -10,6 +10,7 @@ import android.content.pm.ResolveInfo;
 import android.graphics.Typeface;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.os.Environment;
 import android.util.Base64;
 import android.net.Uri;
 import android.os.Build;
@@ -19,6 +20,7 @@ import android.view.WindowManager;
 import android.widget.Toast;
 
 import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -81,17 +83,23 @@ public class Functions {
         return encodedImage;
     }
 
-    public static void downloadFile(Context context, String DownloadUrl) {
+    public static void downloadFile(Context context, String DownloadUrl,String name) {
         // String DownloadUrl = mData.get();
         if (haveNetworkConnection((Activity) context)) {
+            File dir = new File(Environment.getExternalStorageDirectory()
+                    + "/ChhotaUdepur");
+            if(dir.exists() == false){
+                dir.mkdirs();
+            }
+
             DownloadManager.Request request = new DownloadManager.Request(Uri.parse(DownloadUrl));
-            request.setDescription("download pdf file ");   //appears the same in Notification bar while downloading
-            //request.setTitle("ChhotaUdepur.pdf");
+            request.setDescription("download file ");   //appears the same in Notification bar while downloading
+            request.setTitle(name);
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
                 request.allowScanningByMediaScanner();
                 request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
             }
-            request.setDestinationInExternalFilesDir(context, null, "");
+            request.setDestinationInExternalPublicDir("/ChhotaUdepur", name);
 
             // get download service and enqueue file
             DownloadManager manager = (DownloadManager) context.getSystemService(Context.DOWNLOAD_SERVICE);

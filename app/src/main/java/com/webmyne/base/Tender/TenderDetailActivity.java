@@ -60,7 +60,7 @@ public class TenderDetailActivity extends AppCompatActivity implements View.OnCl
                 Toast.makeText(TenderDetailActivity.this,"downloading....",Toast.LENGTH_SHORT).show();
                 Boolean result=Functions.isDownloadManagerAvailable(TenderDetailActivity.this);
                 if (result)
-                    Functions.downloadFile(TenderDetailActivity.this, t1.Attachment);
+                    Functions.downloadFile(TenderDetailActivity.this, t1.Attachment,t1.Description);
             }
         });
 
