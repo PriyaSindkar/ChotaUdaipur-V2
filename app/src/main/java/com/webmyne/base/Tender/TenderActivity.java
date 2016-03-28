@@ -128,7 +128,6 @@ public class TenderActivity extends AppCompatActivity implements View.OnClickLis
         recyclerView.addOnItemTouchListener(new RecyclerTouchListener(getApplicationContext(), recyclerView, new ClickListener() {
             @Override
             public void onClick(View view, int position) {
-
                 //Toast.makeText(getApplicationContext(), data.get(position).getSrNo() + " is selected!", Toast.LENGTH_SHORT).show();
                 TenderResult t1 = data1.get(position);
                 Intent intent = new Intent(getApplicationContext(), TenderDetailActivity.class);
