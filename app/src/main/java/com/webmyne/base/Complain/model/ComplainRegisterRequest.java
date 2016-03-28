@@ -5,7 +5,7 @@ package com.webmyne.base.Complain.model;
  */
 public class ComplainRegisterRequest {
     public String Address, DateGenerated, Description, DeviceID, DeviceType, Email, Image, Mobile, PersonName, Zipcode;
-    public int CategoryID, CategoryTypeID, StatusID, Ward;
+    public int CategoryID, CategoryTypeID,Ward;
 
     public String getAddress() {
         return Address;
@@ -103,13 +103,6 @@ public class ComplainRegisterRequest {
         CategoryTypeID = categoryTypeID;
     }
 
-    public int getStatusID() {
-        return StatusID;
-    }
-
-    public void setStatusID(int statusID) {
-        StatusID = statusID;
-    }
 
     public int getWard() {
         return Ward;
@@ -117,5 +110,24 @@ public class ComplainRegisterRequest {
 
     public void setWard(int ward) {
         Ward = ward;
+    }
+
+    @Override
+    public String toString() {
+        return "ComplainRegisterRequest{" +
+                "Address='" + Address + '\'' +
+                ", DateGenerated='" + DateGenerated + '\'' +
+                ", Description='" + Description + '\'' +
+                ", DeviceID='" + DeviceID + '\'' +
+                ", DeviceType='" + DeviceType + '\'' +
+                ", Email='" + Email + '\'' +
+                ", Image='" + Image + '\'' +
+                ", Mobile='" + Mobile + '\'' +
+                ", PersonName='" + PersonName + '\'' +
+                ", Zipcode='" + Zipcode + '\'' +
+                ", CategoryID=" + CategoryID +
+                ", CategoryTypeID=" + CategoryTypeID +
+                ", Ward=" + Ward +
+                '}';
     }
 }

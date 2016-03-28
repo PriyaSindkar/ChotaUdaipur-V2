@@ -5,4 +5,12 @@ package com.webmyne.base.Complain.model;
  */
 public class ComplainRegisterResult {
     public String ComplaintCode, ResponseCode;
+
+    @Override
+    public String toString() {
+        return "ComplainRegisterResult{" +
+                "ComplaintCode='" + ComplaintCode + '\'' +
+                ", ResponseCode='" + ResponseCode + '\'' +
+                '}';
+    }
 }

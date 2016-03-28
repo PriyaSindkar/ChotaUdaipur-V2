@@ -19,6 +19,8 @@ import android.view.Display;
 import android.view.WindowManager;
 import android.widget.Toast;
 
+import com.google.gson.GsonBuilder;
+
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.util.regex.Matcher;
@@ -126,5 +128,9 @@ public class Functions {
         } catch (Exception e) {
             return false;
         }
+    }
+
+    public static String jsonString(Object obj){
+        return "" + new GsonBuilder().create().toJson(obj).toString();
     }
 }

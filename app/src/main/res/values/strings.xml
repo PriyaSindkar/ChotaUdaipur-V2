@@ -64,5 +64,9 @@
 
     <string name="image_uploaded">Image Selected For Upload</string>
     <string name="remove_image">REMOVE IMAGE</string>
+    <string name="complain_type_spinner">Select Complain Category Type</string>
+    <string name="complain_category_spinner">Select Complain Category</string>
+    <string name="complain_ward_spinner">Select Ward No.</string>
+
 
 </resources>
