@@ -19,6 +19,7 @@ import android.widget.Toast;
 import com.webmyne.R;
 import com.webmyne.base.Complain.api.FetchComplaintStatusService;
 import com.webmyne.base.Complain.model.ComplainStatusResult;
+import com.webmyne.base.Complain.model.MainComplainStatusResult;
 import com.webmyne.base.base.MyApplication;
 import com.webmyne.base.news.NewsActivity;
 import com.webmyne.base.utils.Functions;
@@ -32,8 +33,8 @@ import retrofit2.Response;
  */
 public class Complaint_statusActivity extends AppCompatActivity implements View.OnClickListener {
     private Button edtRegNew, btnCheckStatus, btnClear;
-    private TextView txtBack;
-    private EditText edtComplaintNo, edtComplainstatus;
+    private TextView txtBack, edtComplainRemark, edtComplainstatus;
+    private EditText edtComplaintNo;
     private ProgressDialog dialog;
 
     @Override
@@ -62,7 +63,8 @@ public class Complaint_statusActivity extends AppCompatActivity implements View.
         });
 
         edtComplaintNo = (EditText) findViewById(R.id.edtComplaintNo);
-        edtComplainstatus = (EditText) findViewById(R.id.edtComplainstatus);
+        edtComplainstatus = (TextView) findViewById(R.id.edtComplainstatus);
+        edtComplainRemark = (TextView) findViewById(R.id.edtComplainRemark);
         btnClear.setOnClickListener(this);
         btnCheckStatus.setOnClickListener(this);
     }
@@ -99,17 +101,19 @@ public class Complaint_statusActivity extends AppCompatActivity implements View.
     private void fetchComplaintStatus() {
         if (Functions.haveNetworkConnection(Complaint_statusActivity.this)) {
             FetchComplaintStatusService service = MyApplication.retrofit.create(FetchComplaintStatusService.class);
-            Call<ComplainStatusResult> call = service.getResp(edtComplaintNo.getText().toString().trim());
+            Call<MainComplainStatusResult> call = service.getResp(edtComplaintNo.getText().toString().trim());
 
-            call.enqueue(new Callback<ComplainStatusResult>() {
+            call.enqueue(new Callback<MainComplainStatusResult>() {
                 @Override
-                public void onResponse(Call<ComplainStatusResult> call, Response<ComplainStatusResult> response) {
-                    if(response.body() != null) {
-                        if(response.body().Status == 0) {
-                            Toast.makeText(Complaint_statusActivity.this, "No Complaint Found For This Id.", Toast.LENGTH_SHORT).show();
-                        } else {
+                public void onResponse(Call<MainComplainStatusResult> call, Response<MainComplainStatusResult> response) {
+                    if (response.body() != null) {
+                        if (response.body().ComplainStatusResult.Status != null) {
                             edtComplainstatus.setVisibility(View.VISIBLE);
-                            edtComplainstatus.setText(response.body().Remark);
+                            edtComplainstatus.setText(response.body().ComplainStatusResult.Status);
+                        }
+                        if (response.body().ComplainStatusResult.Remark != null) {
+                            edtComplainRemark.setVisibility(View.VISIBLE);
+                            edtComplainRemark.setText(response.body().ComplainStatusResult.Remark);
                         }
                     } else {
                         Toast.makeText(Complaint_statusActivity.this, "No Complaint of this Id Found.", Toast.LENGTH_SHORT).show();
@@ -117,7 +121,7 @@ public class Complaint_statusActivity extends AppCompatActivity implements View.
                 }
 
                 @Override
-                public void onFailure(Call<ComplainStatusResult> call, Throwable t) {
+                public void onFailure(Call<MainComplainStatusResult> call, Throwable t) {
                     Toast.makeText(Complaint_statusActivity.this, "No Complaint of this Id Found.", Toast.LENGTH_SHORT).show();
                 }
             });

@@ -5,13 +5,5 @@ package com.webmyne.base.Complain.model;
  */
 public class ComplainStatusResult {
     public String  Remark;
-    public int Status;
-
-    @Override
-    public String toString() {
-        return "ComplainStatusResult{" +
-                "Remark='" + Remark + '\'' +
-                ", Status=" + Status +
-                '}';
-    }
+    public String Status;
 }

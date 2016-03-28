@@ -58,14 +58,22 @@
             android:hint="@string/c_num_hint"
             android:maxLength="10" />
 
-        <EditText
+        <TextView
             android:id="@+id/edtComplainstatus"
             style="@style/EdittextStyle"
             android:visibility="gone"
             android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/checkStatus_hint"
+            android:maxLength="30" />
+
+        <TextView
+            android:id="@+id/edtComplainRemark"
+            style="@style/EdittextStyle"
+            android:visibility="gone"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:maxLength="30" />
 
         <LinearLayout

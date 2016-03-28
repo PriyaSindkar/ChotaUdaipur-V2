@@ -1,7 +1,7 @@
 package com.webmyne.base.Complain.api;
 
-import com.webmyne.base.AboutUs.model.AboutUsResp;
 import com.webmyne.base.Complain.model.ComplainStatusResult;
+import com.webmyne.base.Complain.model.MainComplainStatusResult;
 import com.webmyne.base.utils.Conts;
 
 import retrofit2.Call;
@@ -13,5 +13,5 @@ import retrofit2.http.Path;
  */
 public interface FetchComplaintStatusService {
     @GET(Conts.FETCH_COMPLAINT_STATUS_URL)
-    Call<ComplainStatusResult> getResp(@Path("COMPLAINTID") String complaintId);
+    Call<MainComplainStatusResult> getResp(@Path("COMPLAINTID") String complaintId);
 }

@@ -422,7 +422,6 @@ public class ComplainRegisterActivity extends AppCompatActivity implements View.
                             alertDialog.setCancelable(false);
                         }
                     } else {
-
                         Toast.makeText(ComplainRegisterActivity.this, "Failed to Register Complain", Toast.LENGTH_SHORT).show();
                     }
                 } else {
