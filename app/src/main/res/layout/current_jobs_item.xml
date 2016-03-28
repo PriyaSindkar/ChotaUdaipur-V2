@@ -9,24 +9,28 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/std_margin"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        >
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:weightSum="5">
 
             <TextView
                 android:id="@+id/txtIndex"
-                android:layout_width="match_parent"
+                android:layout_width="0sp"
                 android:layout_height="wrap_content"
                 android:padding="@dimen/v_small_margin"
                 android:text="1. "
+                android:layout_weight="0.5"
                 android:textColor="@color/black" />
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="0sp"
                 android:layout_height="wrap_content"
+                android:layout_weight="4"
                 android:orientation="vertical">
 
                 <TextView
@@ -46,7 +50,41 @@
                     android:text="@string/lorem_ipsum"
                     android:textColor="@color/sub_text"
                     android:textSize="@dimen/small_text" />
+
+                <TextView
+                    android:id="@+id/txtNoOFOpening"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/v_small_margin"
+                    android:text="@string/lorem_ipsum"
+                    android:textColor="@color/sub_text"
+                    android:textSize="@dimen/small_text" />
+
+                <TextView
+                    android:id="@+id/txtValidTo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/v_small_margin"
+                    android:text="@string/lorem_ipsum"
+                    android:textColor="@color/sub_text"
+                    android:textSize="@dimen/small_text" />
+
+                <TextView
+                    android:id="@+id/txtValidFrom"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/v_small_margin"
+                    android:text="@string/lorem_ipsum"
+                    android:textColor="@color/sub_text"
+                    android:textSize="@dimen/small_text" />
             </LinearLayout>
+
+            <ImageView
+                android:layout_width="0sp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:id="@+id/imgdownload"
+                android:background="@drawable/ic_download"/>
         </LinearLayout>
 
 
