@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.webmyne.R;
 import com.webmyne.base.current_jobs.model.FetchJobResult;
@@ -44,12 +45,16 @@ public class CurrentJobsAdapter extends RecyclerView.Adapter<CurrentJobsAdapter.
         holder.txtValidFrom.setText("Valid From : " +mData.get(position).getValidFrom());
         if(!mData.get(position).Attachment.equals("")) {
             holder.imgDownload.setVisibility(View.VISIBLE);
-            holder.imgDownload.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Functions.downloadFile(mContext,mData.get(position).Attachment,mData.get(position).getPost());
-                }
-            });
+            Boolean result=Functions.isDownloadManagerAvailable(mContext);
+            if (result) {
+                holder.imgDownload.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Toast.makeText(mContext, "downloading....", Toast.LENGTH_SHORT).show();
+                        Functions.downloadFile(mContext, mData.get(position).Attachment, mData.get(position).getPost());
+                    }
+                });
+            }
         }else
         {
             holder.imgDownload.setVisibility(View.INVISIBLE);
