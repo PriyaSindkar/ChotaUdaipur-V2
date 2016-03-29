@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:backgroundTint="@color/btn_light_color"
+    android:orientation="vertical">
+
+    <TextView
+        android:gravity="center"
+        android:id="@+id/txtTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/std_margin"
+        android:text="@string/Dialog_title"
+        android:textColor="@color/black"
+        android:textSize="@dimen/normal_text" />
+
+
+    <TextView
+
+        android:id="@+id/txtText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/std_margin"
+        android:gravity="center"
+        android:text=""
+        android:textColor="@color/black"
+        android:textSize="@dimen/normal_text" />
+
+    <TextView
+        android:id="@+id/txtText1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical|center_horizontal"
+        android:layout_margin="@dimen/std_margin"
+        android:padding="@dimen/std_margin"
+        android:background="@color/colorAccent"
+        android:enabled="false"
+        android:text="675YK"
+        android:textColor="#fff"
+        android:textSize="@dimen/large_text" />
+
+    <TextView
+        android:textColor="@color/colorAccent"
+        android:id="@+id/dialogButtonOK"
+        android:layout_width="100px"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:layout_margin="@dimen/std_margin"
+        android:text="@string/Dialog_btnOk"
+        android:textStyle="bold"
+        android:textSize="@dimen/large_text" />
+
+</LinearLayout>

@@ -36,7 +36,9 @@ public class CurrentJobsAdapter extends RecyclerView.Adapter<CurrentJobsAdapter.
     public void onBindViewHolder(CurrentJobsItemHolder holder, final int position) {
         holder.txtIndex.setText(String.valueOf(position + 1)+". ");
         holder.txtTitle.setText(mData.get(position).getTitle());
+        holder.txtTitle.setTypeface(Functions.getTypeFace(mContext));
         holder.txtDescription.setText(mData.get(position).getDescription());
+        holder.txtDescription.setTypeface(Functions.getTypeFace(mContext));
         holder.txtNoOFOpening.setText("No of Post : "+mData.get(position).NoOfPost);
         holder.txtValidTo.setText("Valid To : "+mData.get(position).getValidTo());
         holder.txtValidFrom.setText("Valid From : " +mData.get(position).getValidFrom());

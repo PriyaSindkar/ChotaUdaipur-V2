@@ -2,6 +2,7 @@ package com.webmyne.base.Complain;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -16,6 +17,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -213,6 +215,7 @@ public class ComplainRegisterActivity extends AppCompatActivity implements View.
                 break;
 
             case R.id.linearSubmit:
+                //showDialog("675YK");
                 validateData();
                 break;
         }
@@ -406,7 +409,9 @@ public class ComplainRegisterActivity extends AppCompatActivity implements View.
                         if (response.body().ComplainRegisterResult.ComplaintCode.equalsIgnoreCase("Fail")) {
                             Toast.makeText(ComplainRegisterActivity.this, "Failed to Register Complain", Toast.LENGTH_SHORT).show();
                         } else {
-                            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(ComplainRegisterActivity.this);
+
+                            showDialog(response.body().ComplainRegisterResult.ComplaintCode);
+                            /*AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(ComplainRegisterActivity.this);
                             alertDialogBuilder.setTitle("Complain Registered Successfully");
                             alertDialogBuilder
                                     .setMessage("Please Note Down Your Complain Code To Check Status: " + response.body().ComplainRegisterResult.ComplaintCode)
@@ -419,7 +424,7 @@ public class ComplainRegisterActivity extends AppCompatActivity implements View.
                                     });
                             AlertDialog alertDialog = alertDialogBuilder.create();
                             alertDialog.show();
-                            alertDialog.setCancelable(false);
+                            alertDialog.setCancelable(false);*/
                         }
                     } else {
                         Toast.makeText(ComplainRegisterActivity.this, "Failed to Register Complain", Toast.LENGTH_SHORT).show();
@@ -434,6 +439,30 @@ public class ComplainRegisterActivity extends AppCompatActivity implements View.
                 Toast.makeText(ComplainRegisterActivity.this, "Failed to Register Complain", Toast.LENGTH_SHORT).show();
             }
         });
-
     }
+
+    private void showDialog(String code)
+    {
+        final Dialog dialog = new Dialog(ComplainRegisterActivity.this);
+        dialog.setContentView(R.layout.custom_dialog);
+        dialog.setTitle(getString(R.string.Dialog_complaincode));
+
+        TextView text = (TextView) dialog.findViewById(R.id.txtText);
+        text.setText(getString(R.string.Dialog_text));
+
+        TextView text1 = (TextView) dialog.findViewById(R.id.txtText1);
+        text1.setText(code);
+
+        TextView dialogButton = (TextView) dialog.findViewById(R.id.dialogButtonOK);
+        // if button is clicked, close the custom dialog
+        dialogButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+        dialog.setCancelable(false);
+        dialog.show();
+    }
+
 }
