@@ -216,10 +216,6 @@ public class ComplainRegisterActivity extends AppCompatActivity implements View.
                 break;
 
             case R.id.linearSubmit:
-                //showDialog("675YK");
-                dialog1 = new ProgressDialog(this);
-                dialog1.setMessage(getString(R.string.DialogMsg));
-                dialog1.show();
 
                 validateData();
                 break;
@@ -379,6 +375,12 @@ public class ComplainRegisterActivity extends AppCompatActivity implements View.
     }
 
     private void callPostComplain() {
+
+        //showDialog("675YK");
+        dialog1 = new ProgressDialog(this);
+        dialog1.setMessage(getString(R.string.DialogMsg));
+        dialog1.show();
+
         ComplainRegisterRequest registerRequest = new ComplainRegisterRequest();
         registerRequest.setAddress(edtAddr.getText().toString().trim());
         registerRequest.setPersonName(edtName.getText().toString().trim());
@@ -432,16 +434,27 @@ public class ComplainRegisterActivity extends AppCompatActivity implements View.
                             alertDialog.setCancelable(false);*/
                         }
                     } else {
+                        try {
+                            dialog1.dismiss();
+                        }catch (Exception e){}
                         Toast.makeText(ComplainRegisterActivity.this, "Failed to Register Complain", Toast.LENGTH_SHORT).show();
                     }
                 } else {
+                    try {
+                        dialog1.dismiss();
+                    }catch (Exception e){}
                     Toast.makeText(ComplainRegisterActivity.this, "Failed to Register Complain", Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<MainComplainRegisterResult> call, Throwable t) {
+               try {
+                   dialog1.dismiss();
+               }catch (Exception e){}
                 Toast.makeText(ComplainRegisterActivity.this, "Failed to Register Complain", Toast.LENGTH_SHORT).show();
+
+
             }
         });
     }
