@@ -16,6 +16,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
@@ -449,6 +450,13 @@ public class ComplainRegisterActivity extends AppCompatActivity implements View.
     {
         final Dialog dialog = new Dialog(ComplainRegisterActivity.this);
         dialog.setContentView(R.layout.custom_dialog);
+
+        WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+        lp.copyFrom(dialog.getWindow().getAttributes());
+        //lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+        lp.width =(int) (Functions.getDeviceMetrics((Activity) ComplainRegisterActivity.this).widthPixels * 0.8);
+        lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
+
         dialog.setTitle(getString(R.string.Dialog_complaincode));
 
         TextView text = (TextView) dialog.findViewById(R.id.txtText);
@@ -468,6 +476,7 @@ public class ComplainRegisterActivity extends AppCompatActivity implements View.
         });
         dialog.setCancelable(false);
         dialog.show();
+        dialog.getWindow().setAttributes(lp);
     }
 
 }
