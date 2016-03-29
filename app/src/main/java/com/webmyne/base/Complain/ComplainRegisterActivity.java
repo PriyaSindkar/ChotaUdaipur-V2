@@ -63,7 +63,7 @@ public class ComplainRegisterActivity extends AppCompatActivity implements View.
     private EditText edtDesc, edtName, edtAddr, edtPincode, edtMobile, edtEmail;
     private TextView txtBack, txtImageUploaded, txtUpload;
     private LinearLayout linearUploadImage, linearSubmit;
-    private ProgressDialog dialog;
+    private ProgressDialog dialog,dialog1;
     private List<ComplainCategoryModel> categoryModels = new ArrayList<>();
     private ArrayList<ComplainSpinnerModel> Category = new ArrayList<>();
     private ArrayList<ComplainSpinnerModel> categoryCode = new ArrayList<>();
@@ -216,6 +216,10 @@ public class ComplainRegisterActivity extends AppCompatActivity implements View.
 
             case R.id.linearSubmit:
                 //showDialog("675YK");
+                dialog1 = new ProgressDialog(this);
+                dialog1.setMessage(getString(R.string.DialogMsg));
+                dialog1.show();
+
                 validateData();
                 break;
         }
@@ -409,7 +413,7 @@ public class ComplainRegisterActivity extends AppCompatActivity implements View.
                         if (response.body().ComplainRegisterResult.ComplaintCode.equalsIgnoreCase("Fail")) {
                             Toast.makeText(ComplainRegisterActivity.this, "Failed to Register Complain", Toast.LENGTH_SHORT).show();
                         } else {
-
+                            dialog1.dismiss();
                             showDialog(response.body().ComplainRegisterResult.ComplaintCode);
                             /*AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(ComplainRegisterActivity.this);
                             alertDialogBuilder.setTitle("Complain Registered Successfully");
@@ -459,6 +463,7 @@ public class ComplainRegisterActivity extends AppCompatActivity implements View.
             @Override
             public void onClick(View v) {
                 dialog.dismiss();
+                ComplainRegisterActivity.this.finish();
             }
         });
         dialog.setCancelable(false);

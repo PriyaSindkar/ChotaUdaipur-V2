@@ -35,7 +35,7 @@ public class Complaint_statusActivity extends AppCompatActivity implements View.
     private Button edtRegNew, btnCheckStatus, btnClear;
     private TextView txtBack, edtComplainRemark, edtComplainstatus;
     private EditText edtComplaintNo;
-    private ProgressDialog dialog;
+    private ProgressDialog dialog,dialog1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,6 +88,9 @@ public class Complaint_statusActivity extends AppCompatActivity implements View.
                 onBackPressed();
                 break;
             case R.id.btnCheckStatus:
+                dialog1 = new ProgressDialog(this);
+                dialog1.setMessage(getString(R.string.DialogMsg));
+                dialog1.show();
                 fetchComplaintStatus();
                 break;
             case R.id.btnClear:
@@ -108,10 +111,12 @@ public class Complaint_statusActivity extends AppCompatActivity implements View.
                 public void onResponse(Call<MainComplainStatusResult> call, Response<MainComplainStatusResult> response) {
                     if (response.body() != null) {
                         if (response.body().ComplainStatusResult.Status != null) {
+                            dialog1.dismiss();
                             edtComplainstatus.setVisibility(View.VISIBLE);
                             edtComplainstatus.setText(response.body().ComplainStatusResult.Status);
                         }
                         if (response.body().ComplainStatusResult.Remark != null) {
+                            dialog1.dismiss();
                             edtComplainRemark.setVisibility(View.VISIBLE);
                             edtComplainRemark.setText(response.body().ComplainStatusResult.Remark);
                         }
