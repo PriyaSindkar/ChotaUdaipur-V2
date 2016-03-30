@@ -54,7 +54,6 @@
             android:background="@color/yellow_heading"
             android:gravity="center"
             android:padding="@dimen/small_margin"
-            android:text="@string/jobFound"
             android:textAllCaps="true"
             android:textColor="@color/black"
             android:textStyle="bold" />

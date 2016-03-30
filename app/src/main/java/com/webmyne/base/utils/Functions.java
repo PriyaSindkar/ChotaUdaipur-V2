@@ -90,7 +90,7 @@ public class Functions {
         // String DownloadUrl = mData.get();
         if (haveNetworkConnection((Activity) context)) {
             File dir = new File(Environment.getExternalStorageDirectory()
-                    + "/ChotaUdepur");
+                    + "/ChhotaUdepur");
             if(dir.exists() == false){
                 dir.mkdirs();
             }
@@ -106,7 +106,7 @@ public class Functions {
                 request.allowScanningByMediaScanner();
                 request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
             }
-            request.setDestinationInExternalPublicDir("/ChotaUdepur", name);
+            request.setDestinationInExternalPublicDir("/ChhotaUdepur", name);
 
             // get download service and enqueue file
             DownloadManager manager = (DownloadManager) context.getSystemService(Context.DOWNLOAD_SERVICE);
