@@ -15,6 +15,7 @@ import android.util.Base64;
 import android.net.Uri;
 import android.os.Build;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.Display;
 import android.view.WindowManager;
 import android.widget.Toast;
@@ -89,19 +90,23 @@ public class Functions {
         // String DownloadUrl = mData.get();
         if (haveNetworkConnection((Activity) context)) {
             File dir = new File(Environment.getExternalStorageDirectory()
-                    + "/ChhotaUdepur");
+                    + "/ChotaUdepur");
             if(dir.exists() == false){
                 dir.mkdirs();
             }
 
-            DownloadManager.Request request = new DownloadManager.Request(Uri.parse(DownloadUrl));
+            Log.e("### DownloadUrl",DownloadUrl);
+            String s = DownloadUrl.replaceAll(" " , "%20");
+             Uri link = Uri.parse(s);
+
+            DownloadManager.Request request = new DownloadManager.Request(link);
             request.setDescription("download file ");   //appears the same in Notification bar while downloading
             request.setTitle(name);
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
                 request.allowScanningByMediaScanner();
                 request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
             }
-            request.setDestinationInExternalPublicDir("/ChhotaUdepur", name);
+            request.setDestinationInExternalPublicDir("/ChotaUdepur", name);
 
             // get download service and enqueue file
             DownloadManager manager = (DownloadManager) context.getSystemService(Context.DOWNLOAD_SERVICE);
@@ -126,6 +131,7 @@ public class Functions {
                     PackageManager.MATCH_DEFAULT_ONLY);
             return list.size() > 0;
         } catch (Exception e) {
+            Log.e("### EXc",e.toString());
             return false;
         }
     }

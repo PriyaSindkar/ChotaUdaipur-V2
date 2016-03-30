@@ -410,6 +410,8 @@ public class ComplainRegisterActivity extends AppCompatActivity implements View.
         call.enqueue(new Callback<MainComplainRegisterResult>() {
             @Override
             public void onResponse(Call<MainComplainRegisterResult> call, Response<MainComplainRegisterResult> response) {
+                dialog1.dismiss();
+
                 if (response.body() != null) {
                     Log.e("onResponse", response.body().toString());
                     if (response.body().ComplainRegisterResult != null) {
