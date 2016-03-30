@@ -405,6 +405,7 @@ public class ComplainRegisterActivity extends AppCompatActivity implements View.
 
         Log.e("COMPLAIN_REGISTER", Functions.jsonString(registerRequest));
 
+
         PostComplaintService service = MyApplication.retrofit.create(PostComplaintService.class);
         Call<MainComplainRegisterResult> call = service.doPostComplain(registerRequest);
         call.enqueue(new Callback<MainComplainRegisterResult>() {
