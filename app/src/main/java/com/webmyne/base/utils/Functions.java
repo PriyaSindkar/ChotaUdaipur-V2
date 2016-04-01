@@ -7,7 +7,10 @@ import android.graphics.Bitmap;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
+import android.graphics.BitmapFactory;
+import android.graphics.Matrix;
 import android.graphics.Typeface;
+import android.media.ThumbnailUtils;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Environment;
@@ -24,6 +27,10 @@ import com.google.gson.GsonBuilder;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -77,10 +84,34 @@ public class Functions {
         return matcher.matches();
     }
 
-    public static String returnBas64Image(Bitmap thumbnail) {
+    public static Bitmap getResizedBitmap(Bitmap bm, int newWidth, int newHeight) {
+        int width = bm.getWidth();
+        int height = bm.getHeight();
+        float scaleWidth = ((float) newWidth) / width;
+        float scaleHeight = ((float) newHeight) / height;
+        // CREATE A MATRIX FOR THE MANIPULATION
+        Matrix matrix = new Matrix();
+        // RESIZE THE BIT MAP
+        matrix.postScale(scaleWidth, scaleHeight);
+
+        // "RECREATE" THE NEW BITMAP
+        Bitmap resizedBitmap = Bitmap.createBitmap(
+                bm, 0, 0, width, height, matrix, false);
+        //bm.recycle();
+        return resizedBitmap;
+    }
+
+
+
+
+
+    public static String returnBas64Image(Bitmap thumbnail1) {
+
+        Bitmap thumbnail =  getResizedBitmap(thumbnail1,540,960);
+
         //complete code to save image on server
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        thumbnail.compress(Bitmap.CompressFormat.PNG, 100, baos); //bm is the bitmap object
+        thumbnail.compress(Bitmap.CompressFormat.JPEG, 10, baos); //bm is the bitmap object
         byte[] b = baos.toByteArray();
         String encodedImage = Base64.encodeToString(b, Base64.DEFAULT);
         return encodedImage;
