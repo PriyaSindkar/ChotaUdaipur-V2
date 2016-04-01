@@ -51,7 +51,7 @@ public class CurrentJobsAdapter extends RecyclerView.Adapter<CurrentJobsAdapter.
                     @Override
                     public void onClick(View v) {
                         Toast.makeText(mContext, "downloading....", Toast.LENGTH_SHORT).show();
-                        Functions.downloadFile(mContext, mData.get(position).Attachment, mData.get(position).getPost());
+                        Functions.downloadFile(mContext, mData.get(position).Attachment, mData.get(position).getTitle());
                     }
                 });
             }

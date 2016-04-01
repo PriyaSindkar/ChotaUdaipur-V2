@@ -88,10 +88,12 @@ public class Complaint_statusActivity extends AppCompatActivity implements View.
                 onBackPressed();
                 break;
             case R.id.btnCheckStatus:
-                dialog1 = new ProgressDialog(this);
-                dialog1.setMessage(getString(R.string.DialogMsg));
-                dialog1.show();
-                fetchComplaintStatus();
+                if(edtComplaintNo.getText().toString().trim().length()==0){
+                    Toast.makeText(Complaint_statusActivity.this, "Please enter Complaint Id.", Toast.LENGTH_SHORT).show();
+                }else{
+                    fetchComplaintStatus();
+
+                }
                 break;
             case R.id.btnClear:
                 edtComplaintNo.setText("");
@@ -103,6 +105,11 @@ public class Complaint_statusActivity extends AppCompatActivity implements View.
 
     private void fetchComplaintStatus() {
         if (Functions.haveNetworkConnection(Complaint_statusActivity.this)) {
+
+            dialog1 = new ProgressDialog(Complaint_statusActivity.this);
+            dialog1.setMessage(getString(R.string.DialogMsg));
+            dialog1.show();
+
             FetchComplaintStatusService service = MyApplication.retrofit.create(FetchComplaintStatusService.class);
             Call<MainComplainStatusResult> call = service.getResp(edtComplaintNo.getText().toString().trim());
 
