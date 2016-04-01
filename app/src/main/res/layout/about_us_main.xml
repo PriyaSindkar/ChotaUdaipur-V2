@@ -42,6 +42,17 @@
             android:layout_height="1.5dp"
             android:background="@drawable/line_linear" />
 
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="none"
+            android:layout_marginBottom="@dimen/std_margin"
+            >
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
         <FrameLayout
             android:layout_width="match_parent"
@@ -52,7 +63,7 @@
             <ImageView
                 android:id="@+id/imageView2"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="160dp"
                 android:scaleType="fitXY"
                 />
 
@@ -64,12 +75,6 @@
         </FrameLayout>
 
 
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scrollbars="none"
-            android:layout_marginBottom="@dimen/std_margin"
-            >
 
             <com.webmyne.base.ui.JustifiedTextView
                 xmlns:noghteh="http://noghteh.ir"
@@ -81,6 +86,7 @@
                 noghteh:textColor="@color/colorPrimary">
 
             </com.webmyne.base.ui.JustifiedTextView>
+            </LinearLayout>
         </ScrollView>
     </LinearLayout>
 

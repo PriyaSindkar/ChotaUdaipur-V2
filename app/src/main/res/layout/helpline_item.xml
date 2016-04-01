@@ -11,8 +11,7 @@
         android:layout_height="wrap_content"
         android:padding="@dimen/std_margin"
         android:textColor="@color/black"
-        android:gravity="center"
-        android:textSize="11sp" />
+        android:gravity="center"/>
 
     <View
         android:layout_width="match_parent"
