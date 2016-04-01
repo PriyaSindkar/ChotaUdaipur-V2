@@ -14,8 +14,7 @@ public class Conts {
     final public static String  LOCAL_PATH = "http://ws-srv-net.in.webmyne.com/Applications/dreamsdesign.us/CUSevaSadan_WS/Service.svc/";
     final public static  String LIVE_PATH="http://dreamsdesign.us/CUSevaSadan_WS/Service.svc/";
 
-    final public static  String BASE_URL=LIVE_PATH;
-
+    final public static  String BASE_URL=LOCAL_PATH;
 
     final public static  String ABOUT_US_URL="json/AboutUS";
     final public static  String ACHIVEMENT_URL="json/Achievement";
