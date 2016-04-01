@@ -12,7 +12,7 @@
     <string name="currentJob">CURRENT JOBS</string>
     <string name="jobFound">10 jobs found</string>
     <string name="news">NEWS AND UPDATES</string>
-    <string name="complaint">COMPLAINS REGISTRATION</string>
+    <string name="complaint">COMPLAINTS REGISTRATION</string>
     <string name="info">INFORMATION</string>
     <string name="desc_hint">Describe Complaint</string>
     <string name="personalInfo">PERSONAL INFORMATION</string>
@@ -28,7 +28,7 @@
     <string name="newreg_hint">REGISTER NEW COMPLAINT</string>
     <string name="checkStatus_hint">Check Complaint Status</string>
     <string name="c_num_hint">Enter Your Complaint Number</string>
-    <string name="alreadyreg">ALREADY REGISTERD</string>
+    <string name="alreadyreg">ALREADY REGISTERED</string>
     <string name="helpline">HELPLINES</string>
     <string name="helplinesubtitle">HERE IS A LIST OF EMERGENCY NUMBERS THAT YOU MUST BE AWARE OF :</string>
     <string name="tender">ACTIVE TENDER</string>
@@ -53,7 +53,7 @@
 
     <string name="aboutus">ABOUT US</string>
     <string name="management">MANAGEMENT</string>
-    <string name="complains">COMPLAINS</string>
+    <string name="complains">COMPLAINTS</string>
     <string name="achievements">ACHIVEMENTS</string>
     <string name="jobs">JOBS</string>
     <string name="tourist">TOURIST SPOTS</string>

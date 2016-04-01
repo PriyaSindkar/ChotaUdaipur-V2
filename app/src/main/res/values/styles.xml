@@ -24,6 +24,13 @@
         <item name="android:windowBackground">@android:color/transparent</item>
     </style>
 
+    <style name="CustomAlertDialogStyle2" parent="AppTheme">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:gravity">center</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+    </style>
 
     <style name="EdittextStyle">
         <item name="android:layout_marginLeft">@dimen/std1_margin</item>

@@ -78,6 +78,7 @@
                     android:textColor="@color/black"
                     android:textSize="@dimen/v_small_text" />
 
+
                 <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -94,6 +95,7 @@
                         android:textSize="@dimen/v_small_text" />
 
                     <LinearLayout
+                        android:visibility="gone"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"

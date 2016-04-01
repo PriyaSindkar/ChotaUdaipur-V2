@@ -31,4 +31,7 @@
     <color name="menu7">#d500f9</color>
     <color name="menu8">#f57c00</color>
 
+
+    <color name="blurBg">#bc000000</color>
+
 </resources>
