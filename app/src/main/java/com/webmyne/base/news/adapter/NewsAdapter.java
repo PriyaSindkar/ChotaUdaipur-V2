@@ -63,6 +63,10 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.MyViewHolder> 
         holder.txtTitle.setText(mData.get(position).getTitle());
         holder.txtTitle.setTypeface(Functions.getTypeFace(c));
 
+
+        holder.txtNewsDate.setText(mData.get(position).getDateGenerated());
+        holder.txtNewsDate.setTypeface(Functions.getTypeFace(c));
+
         holder.txtDescription.setText(mData.get(position).getDescription());
         holder.txtDescription.setTypeface(Functions.getTypeFace(c));
 
@@ -94,6 +98,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.MyViewHolder> 
                 ii.putExtra("ImageURL",""+mData.get(position).getAttachment());
                 ii.putExtra("Description",""+mData.get(position).Description);
                 ii.putExtra("Title",""+mData.get(position).getTitle());
+                ii.putExtra("Date",""+mData.get(position).getDateGenerated());
                 c.startActivity(ii);
 
               /*  InfoDialog2 infoDialog = new InfoDialog2(c, R.style.CustomAlertDialogStyle2,mData.get(position));
@@ -123,12 +128,13 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.MyViewHolder> 
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        private TextView txtTitle, txtReadMore, txtDescription;
+        private TextView txtTitle,txtNewsDate, txtReadMore, txtDescription;
         private ImageView img;
         private ProgressBar progressBar;
 
         public MyViewHolder(View itemView) {
             super(itemView);
+            txtNewsDate = (TextView) itemView.findViewById(R.id.txtNewsDate);
             txtTitle = (TextView) itemView.findViewById(R.id.txtTitle);
             txtDescription = (TextView) itemView.findViewById(R.id.txtDescription);
             img = (ImageView) itemView.findViewById(R.id.img);

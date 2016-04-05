@@ -18,7 +18,7 @@ import com.webmyne.base.utils.Functions;
 
 public class NewsDetailActivity extends Activity {
 
-    private TextView JustifiedTextView,title,txtBack;
+    private TextView JustifiedTextView,title,txtNewsDate,txtBack;
     private ImageView imageView2;
     private ProgressBar progressBar;
 
@@ -37,8 +37,11 @@ public class NewsDetailActivity extends Activity {
         JustifiedTextView.setText(getIntent().getStringExtra("Description"));
         title.setText(getIntent().getStringExtra("Title"));
 
+        txtNewsDate.setText(getIntent().getStringExtra("Date"));
+
         JustifiedTextView.setTypeface(Functions.getTypeFace(NewsDetailActivity.this));
         title.setTypeface(Functions.getTypeFace(NewsDetailActivity.this));
+        txtNewsDate.setTypeface(Functions.getTypeFace(NewsDetailActivity.this));
 
         progressBar.setVisibility(View.VISIBLE);
         Glide.with(NewsDetailActivity.this)
@@ -64,6 +67,7 @@ public class NewsDetailActivity extends Activity {
         imageView2 = (ImageView)findViewById(R.id.imageView2);
         JustifiedTextView = (TextView)findViewById(R.id.activity_main_jtv);
         title = (TextView)findViewById(R.id.title);
+        txtNewsDate = (TextView)findViewById(R.id.txtNewsDate);
         txtBack= (TextView)findViewById(R.id.txtBack);
         txtBack.setOnClickListener(new View.OnClickListener() {
             @Override

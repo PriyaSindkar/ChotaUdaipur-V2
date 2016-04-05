@@ -76,6 +76,17 @@
                 </FrameLayout>
 
                 <TextView
+                    android:textSize="10sp"
+                    android:layout_marginTop="8dp"
+                    android:id="@+id/txtNewsDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="left"
+                    android:gravity="left"
+                    android:paddingLeft="16dp"
+                    android:textColor="@color/colorPrimary"/>
+
+                <TextView
                     android:layout_marginTop="16dp"
                     android:id="@+id/title"
                     android:textStyle="bold"
@@ -83,6 +94,7 @@
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
                     android:gravity="center"
+                    android:textSize="16dp"
                     android:textColor="@color/colorPrimary"/>
 
                 <TextView
