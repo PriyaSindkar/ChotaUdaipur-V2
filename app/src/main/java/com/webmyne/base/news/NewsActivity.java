@@ -59,12 +59,19 @@ public class NewsActivity extends AppCompatActivity implements View.OnClickListe
         recyclerView.setLayoutManager(linearLayoutManager);
 
         if(Functions.haveNetworkConnection(NewsActivity.this)) {
+
+            dialog = new ProgressDialog(NewsActivity.this);
+            dialog.setMessage(""+getString(R.string.DialogMsg2));
+            dialog.setCancelable(false);
+            dialog.show();
+
+
             NewsApi api = MyApplication.retrofit.create(NewsApi.class);
             Call<NewsResp> call = api.getResp();
             call.enqueue(new Callback<NewsResp>() {
                 @Override
                 public void onResponse(Call<NewsResp> call, Response<NewsResp> response) {
-
+                    dialog.dismiss();
                     try {
                         // Log.e("onResponse", response.body().getAchievementResultl().toString());
                         if (response.body().getFetchNewsResult() != null) {
@@ -85,6 +92,7 @@ public class NewsActivity extends AppCompatActivity implements View.OnClickListe
 
                 @Override
                 public void onFailure(Call<NewsResp> call, Throwable t) {
+                    dialog.dismiss();
                     Log.e("onFailure", t.toString());
                 }
             });

@@ -62,12 +62,20 @@ public class CurrentJobsActivity extends AppCompatActivity implements View.OnCli
         recyclerView.setLayoutManager(linearLayoutManager);
 
         if(Functions.haveNetworkConnection(CurrentJobsActivity.this)) {
+
+
+            dialog = new ProgressDialog(CurrentJobsActivity.this);
+            dialog.setMessage(""+getString(R.string.DialogMsg2));
+            dialog.setCancelable(false);
+            dialog.show();
+
+
             CurrentJobApi api = MyApplication.retrofit.create(CurrentJobApi.class);
             Call<CurrentJobResp> call = api.getResp();
             call.enqueue(new Callback<CurrentJobResp>() {
                 @Override
                 public void onResponse(Call<CurrentJobResp> call, Response<CurrentJobResp> response) {
-
+                    dialog.dismiss();
                     try {
                         if (response.body().FetchJobResult != null) {
                             data1 = response.body().getFetchJobResult();
@@ -87,6 +95,7 @@ public class CurrentJobsActivity extends AppCompatActivity implements View.OnCli
 
                 @Override
                 public void onFailure(Call<CurrentJobResp> call, Throwable t) {
+                    dialog.dismiss();
                     Log.e("onFailure", t.toString());
                 }
             });

@@ -66,12 +66,18 @@ public class HelpLineActivity extends AppCompatActivity implements View.OnClickL
 
         helpline=new ArrayList<HelpLineResult>();
         if(Functions.haveNetworkConnection(HelpLineActivity.this)) {
+
+            dialog = new ProgressDialog(HelpLineActivity.this);
+            dialog.setMessage(""+getString(R.string.DialogMsg2));
+            dialog.setCancelable(false);
+            dialog.show();
+
             HelpLineApi api = MyApplication.retrofit.create(HelpLineApi.class);
             Call<HelplineResp> call = api.getResp();
             call.enqueue(new Callback<HelplineResp>() {
                 @Override
                 public void onResponse(Call<HelplineResp> call, Response<HelplineResp> response) {
-
+                    dialog.dismiss();
                     try {
                         // Log.e("onResponse", response.body().getAchievementResultl().toString());
                         if (response.body().HelpLineResult != null) {
@@ -94,7 +100,7 @@ public class HelpLineActivity extends AppCompatActivity implements View.OnClickL
 
                 @Override
                 public void onFailure(Call<HelplineResp> call, Throwable t) {
-                    Log.e("onFailure", t.toString());
+                    dialog.dismiss();Log.e("onFailure", t.toString());
                 }
             });
         }

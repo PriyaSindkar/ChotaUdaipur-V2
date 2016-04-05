@@ -67,11 +67,18 @@ public class Achievement_Activity extends AppCompatActivity implements View.OnCl
 
         achivements=new ArrayList<AchievementResult>();
         if(Functions.haveNetworkConnection(Achievement_Activity.this)) {
+
+            dialog = new ProgressDialog(Achievement_Activity.this);
+            dialog.setMessage(""+getString(R.string.DialogMsg2));
+            dialog.setCancelable(false);
+            dialog.show();
+
             AchievementApi api = MyApplication.retrofit.create(AchievementApi.class);
             Call<AchievementResp> call = api.getResp();
             call.enqueue(new Callback<AchievementResp>() {
                 @Override
                 public void onResponse(Call<AchievementResp> call, Response<AchievementResp> response) {
+                    dialog.dismiss();
                     try {
                        // Log.e("onResponse", response.body().getAchievementResultl().toString());
                         if (response.body().getAchievementResultl() != null) {
@@ -89,7 +96,7 @@ public class Achievement_Activity extends AppCompatActivity implements View.OnCl
 
                 @Override
                 public void onFailure(Call<AchievementResp> call, Throwable t) {
-                    Log.e("onFailure", t.toString());
+                    dialog.dismiss();Log.e("onFailure", t.toString());
                 }
             });
         }

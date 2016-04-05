@@ -254,13 +254,19 @@ public class ComplainRegisterActivity extends AppCompatActivity implements View.
 
     private void fetchComplainInfo() {
         if (Functions.haveNetworkConnection(ComplainRegisterActivity.this)) {
+
+            dialog = new ProgressDialog(ComplainRegisterActivity.this);
+            dialog.setMessage(""+getString(R.string.DialogMsg2));
+            dialog.setCancelable(false);
+            dialog.show();
+
             FetchComplaintInfoService service = MyApplication.retrofit.create(FetchComplaintInfoService.class);
             Call<MainFetchComplainInfo> call = service.getResp();
 
             call.enqueue(new Callback<MainFetchComplainInfo>() {
                 @Override
                 public void onResponse(Call<MainFetchComplainInfo> call, Response<MainFetchComplainInfo> response) {
-
+                    dialog.dismiss();
                     if (response.body().FetchComplainInfoResult != null) {
                         setData(response.body().FetchComplainInfoResult);
                     }
@@ -268,6 +274,7 @@ public class ComplainRegisterActivity extends AppCompatActivity implements View.
 
                 @Override
                 public void onFailure(Call<MainFetchComplainInfo> call, Throwable t) {
+                    dialog.dismiss();
                     Log.e("onFailure", t.toString());
                 }
             });

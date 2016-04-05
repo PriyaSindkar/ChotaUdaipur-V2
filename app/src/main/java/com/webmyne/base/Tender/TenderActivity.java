@@ -81,12 +81,18 @@ public class TenderActivity extends AppCompatActivity implements View.OnClickLis
         recyclerView.setLayoutManager(linearLayoutManager);
 
         if(Functions.haveNetworkConnection(TenderActivity.this)) {
+
+            dialog = new ProgressDialog(TenderActivity.this);
+            dialog.setMessage(""+getString(R.string.DialogMsg2));
+            dialog.setCancelable(false);
+            dialog.show();
+
             TenderApi api = MyApplication.retrofit.create(TenderApi.class);
             Call<TenderResp> call = api.getResp();
             call.enqueue(new Callback<TenderResp>() {
                 @Override
                 public void onResponse(Call<TenderResp> call, Response<TenderResp> response) {
-
+                    dialog.dismiss();
                     try {
                         // Log.e("onResponse", response.body().getAchievementResultl().toString());
                         if (response.body().getTenderResult() != null) {
@@ -101,7 +107,7 @@ public class TenderActivity extends AppCompatActivity implements View.OnClickLis
 
                 @Override
                 public void onFailure(Call<TenderResp> call, Throwable t) {
-                    Log.e("onFailure", t.toString());
+                    dialog.dismiss();  Log.e("onFailure", t.toString());
                 }
             });
         }

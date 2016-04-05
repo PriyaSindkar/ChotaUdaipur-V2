@@ -50,7 +50,6 @@
                 and milk and then using it to depict intricate motifs and scenes on the walls of their village dwellings.</string>
 
 
-
     <string name="aboutus">ABOUT US</string>
     <string name="management">MANAGEMENT</string>
     <string name="complains">COMPLAINTS</string>
@@ -72,4 +71,6 @@
     <string name="Dialog_text">Please Note Down Your Complain Code To Check Status: </string>
     <string name="Dialog_btnOk">OK</string>
     <string name="DialogMsg">Please Wait</string>
+
+    <string name="DialogMsg2">Loading...</string>
 </resources>

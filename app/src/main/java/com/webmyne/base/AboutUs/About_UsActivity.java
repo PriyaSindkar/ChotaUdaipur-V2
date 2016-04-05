@@ -77,13 +77,19 @@ public class About_UsActivity extends AppCompatActivity implements View.OnClickL
        // txtAboutUs.setText(R.string.aboutChhotaUdepur);
 
         if(Functions.haveNetworkConnection(About_UsActivity.this)) {
+
+            dialog = new ProgressDialog(About_UsActivity.this);
+            dialog.setMessage(""+getString(R.string.DialogMsg2));
+            dialog.setCancelable(false);
+            dialog.show();
+
             AboutusApi api = MyApplication.retrofit.create(AboutusApi.class);
             Call<AboutUsResp> call = api.getResp();
             progressBar.setVisibility(View.VISIBLE);
             call.enqueue(new Callback<AboutUsResp>() {
                 @Override
                 public void onResponse(Call<AboutUsResp> call, Response<AboutUsResp> response) {
-
+                    dialog.dismiss();
                     Log.e("onResponse", response.body().toString());
 
                     try {
@@ -117,6 +123,8 @@ public class About_UsActivity extends AppCompatActivity implements View.OnClickL
 
                 @Override
                 public void onFailure(Call<AboutUsResp> call, Throwable t) {
+
+                    dialog.dismiss();
                     Log.e("onFailure", t.toString());
                 }
             });

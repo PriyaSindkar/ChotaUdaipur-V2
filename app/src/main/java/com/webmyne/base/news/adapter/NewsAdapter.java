@@ -29,6 +29,7 @@ import com.ms.square.android.expandabletextview.ExpandableTextView;
 import com.webmyne.R;
 import com.webmyne.base.news.InfoDialog2;
 import com.webmyne.base.news.NewsActivity;
+import com.webmyne.base.news.NewsDetailActivity;
 import com.webmyne.base.news.model.FetchNewsResult;
 import com.webmyne.base.touristSpots.ui.InfoDialog;
 import com.webmyne.base.utils.Functions;
@@ -88,7 +89,14 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.MyViewHolder> 
             @Override
             public void onClick(View v) {
 
-                InfoDialog2 infoDialog = new InfoDialog2(c, R.style.CustomAlertDialogStyle2,mData.get(position));
+
+                Intent ii = new Intent(c,NewsDetailActivity.class);
+                ii.putExtra("ImageURL",""+mData.get(position).getAttachment());
+                ii.putExtra("Description",""+mData.get(position).Description);
+                ii.putExtra("Title",""+mData.get(position).getTitle());
+                c.startActivity(ii);
+
+              /*  InfoDialog2 infoDialog = new InfoDialog2(c, R.style.CustomAlertDialogStyle2,mData.get(position));
                 WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
                 lp.copyFrom(infoDialog.getWindow().getAttributes());
                 //lp.width = WindowManager.LayoutParams.MATCH_PARENT;
@@ -98,7 +106,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.MyViewHolder> 
                 // infoDialog.getWindow().getAttributes().width = (int) (Functions.getDeviceMetrics((Activity) mContext).widthPixels * 0.8);
                 // infoDialog.getWindow().setLayout((int) (Functions.getDeviceMetrics((Activity) mContext).widthPixels * 0.8), Window.FEATURE_PROGRESS );
                 infoDialog.show();
-                infoDialog.getWindow().setAttributes(lp);
+                infoDialog.getWindow().setAttributes(lp);*/
             }
         });
     }

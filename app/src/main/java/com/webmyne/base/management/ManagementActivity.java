@@ -70,12 +70,17 @@ public class ManagementActivity extends AppCompatActivity implements View.OnClic
 
         dataArray1=new ArrayList<>();
         if(Functions.haveNetworkConnection(ManagementActivity.this)) {
+
+            dialog = new ProgressDialog(ManagementActivity.this);
+            dialog.setMessage(""+getString(R.string.DialogMsg2));
+            dialog.setCancelable(false);
+            dialog.show();
             MangamentApi api = MyApplication.retrofit.create(MangamentApi.class);
             Call<ManagementResp> call = api.getResp();
             call.enqueue(new Callback<ManagementResp>() {
                 @Override
                 public void onResponse(Call<ManagementResp> call, Response<ManagementResp> response) {
-
+                    dialog.dismiss();
                     try {
                         // Log.e("onResponse", response.body().getAchievementResultl().toString());
                         if (response.body().getManagementResult() != null) {
@@ -96,7 +101,7 @@ public class ManagementActivity extends AppCompatActivity implements View.OnClic
 
                 @Override
                 public void onFailure(Call<ManagementResp> call, Throwable t) {
-                    Log.e("onFailure", t.toString());
+                    dialog.dismiss(); Log.e("onFailure", t.toString());
                 }
             });
         }

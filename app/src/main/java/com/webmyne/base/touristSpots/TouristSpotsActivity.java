@@ -60,12 +60,18 @@ public class TouristSpotsActivity extends AppCompatActivity implements View.OnCl
 
         dataArray1=new ArrayList<>();
         if(Functions.haveNetworkConnection(TouristSpotsActivity.this)) {
+
+            dialog = new ProgressDialog(TouristSpotsActivity.this);
+            dialog.setMessage(""+getString(R.string.DialogMsg2));
+            dialog.setCancelable(false);
+            dialog.show();
+
             TouristApi api = MyApplication.retrofit.create(TouristApi.class);
             Call<ToutistResp> call = api.getResp();
             call.enqueue(new Callback<ToutistResp>() {
                 @Override
                 public void onResponse(Call<ToutistResp> call, Response<ToutistResp> response) {
-
+                    dialog.dismiss();
                     try {
                         // Log.e("onResponse", response.body().getAchievementResultl().toString());
                         if (response.body().getTouristResult() != null) {
@@ -79,6 +85,7 @@ public class TouristSpotsActivity extends AppCompatActivity implements View.OnCl
 
                 @Override
                 public void onFailure(Call<ToutistResp> call, Throwable t) {
+                    dialog.dismiss();
                     Log.e("onFailure", t.toString());
                 }
             });

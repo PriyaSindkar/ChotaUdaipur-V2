@@ -28,4 +28,5 @@ public class Conts {
     final public static  String FETCH_COMPLAINT_INFO_URL="json/FetchComplainInfo";
     final public static  String POST_COMPLAINT_URL="json/ComplainRegister";
     final public static  String TENDER_URL="json/Tender";
+
 }
