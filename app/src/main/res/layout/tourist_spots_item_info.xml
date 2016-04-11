@@ -55,7 +55,7 @@
                 android:padding="@dimen/v_small_margin"
                 android:text="Kali niketan"
                 android:textAllCaps="true"
-                android:textColor="@color/black"
+                android:textColor="@color/colorPrimary"
                 android:textSize="@dimen/v_small_text"
                 android:textStyle="bold" />
 

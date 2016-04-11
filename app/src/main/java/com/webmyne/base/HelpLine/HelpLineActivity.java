@@ -123,7 +123,7 @@ public class HelpLineActivity extends AppCompatActivity implements View.OnClickL
 
     private void setDataAdapter(){
 
-        adapter = new HelpLineAdapter(helpline);
+        adapter = new HelpLineAdapter(this,helpline);
         recyclerView.setAdapter(adapter);
     }
 

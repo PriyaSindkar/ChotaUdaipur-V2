@@ -5,7 +5,7 @@
     <string name="AppBar_title2">CHHOTA UDEPUR</string>
 
     <string name="dummy">Department of Agriculture and Cooperation: Apply for Technical Assistant and Senior Technical posts:</string>
-    <string name="lorem_ipsum">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, </string>
+    <string name="lorem_ipsum">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</string>
 
     <string name="aboutchhotaudepur">ABOUT CHHOTA UDEPUR</string>
     <string name="achievement">ACHIEVEMENT</string>
@@ -73,4 +73,7 @@
     <string name="DialogMsg">Please Wait</string>
 
     <string name="DialogMsg2">Loading...</string>
+    <string name="yes">YES</string>
+    <string name="no">NO</string>
+    <string name="alert_msg">Are you sure want to call this Number?</string>
 </resources>

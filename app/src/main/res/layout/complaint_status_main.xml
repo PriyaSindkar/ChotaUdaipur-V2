@@ -82,15 +82,15 @@
             android:layout_marginBottom="@dimen/std_margin"
             android:layout_marginLeft="@dimen/btn_margin"
             android:layout_marginRight="@dimen/btn_margin"
-            android:layout_marginTop="@dimen/std_margin"
+            android:layout_marginTop="@dimen/large_margin"
             android:weightSum="2"
             android:orientation="horizontal">
 
 
             <Button
                 android:id="@+id/btnClear"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_width="0sp"
+                android:layout_height="@dimen/btn_margin"
                 android:layout_marginRight="@dimen/std1_half_margin"
                 android:layout_weight="1"
                 android:background="@color/black"
@@ -98,9 +98,8 @@
 
             <Button
                 android:id="@+id/btnCheckStatus"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_gravity="center_horizontal"
+                android:layout_width="0sp"
+                android:layout_height="@dimen/btn_margin"
                 android:layout_marginLeft="@dimen/std1_half_margin"
                 android:layout_weight="1"
                 android:background="@color/colorAccent"
@@ -113,9 +112,9 @@
             android:id="@+id/edtRegNew"
             style="@style/EdittextStyle"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/btn_margin"
             android:gravity="center"
-            android:hint="@string/newreg_hint" />
+            android:text="@string/newreg_hint" />
 
     </LinearLayout>
 </RelativeLayout>
