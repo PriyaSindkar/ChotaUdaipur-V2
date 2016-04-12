@@ -24,7 +24,7 @@ public class TenderDetailAdapter extends RecyclerView.Adapter<TenderDetailAdapte
 
     @Override
     public TenderDetailAdapter.MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.helpline_item, parent, false);
+        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.tender_detail_item, parent, false);
         return new MyViewHolder(itemView);
     }
 
