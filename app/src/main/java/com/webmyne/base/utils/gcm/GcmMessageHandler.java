@@ -17,6 +17,7 @@ import android.util.Log;
 
 import com.google.android.gms.gcm.GoogleCloudMessaging;
 import com.webmyne.R;
+import com.webmyne.base.base.MainActivity;
 
 
 import java.util.Random;
@@ -79,29 +80,24 @@ public class GcmMessageHandler extends IntentService {
 
         Log.e("message", message);
 
-        int icon = R.mipmap.ic_launcher;
+        int icon = R.mipmap.logo;
         long when = System.currentTimeMillis();
         String title = this.getString(R.string.app_name);
         int mNotificationId = 101;
 
-        Random random = new Random();
-        int m = random.nextInt(9999 - 1000) + 1000;
 
-        NotificationManager notificationManager = (NotificationManager) this.getSystemService(Context.NOTIFICATION_SERVICE);
+        PendingIntent contentIntent = PendingIntent.getActivity(getApplicationContext(),
+                0,new Intent(getApplicationContext(), MainActivity.class), 0);
+        android.support.v7.app.NotificationCompat.Builder  mBuilder =
+                new android.support.v7.app.NotificationCompat.Builder(getApplicationContext());
+        mBuilder.setContentTitle(title);
+        mBuilder.setContentText(String.format("%s",message));
+        mBuilder.setSmallIcon(icon);
+        mBuilder.setContentIntent(contentIntent);
+        mBuilder.setDefaults(Notification.DEFAULT_VIBRATE | Notification.DEFAULT_SOUND);
 
-        NotificationCompat.Builder mBuilder =
-                new NotificationCompat.Builder(this)
-                        .setSmallIcon(icon)
-                        .setContentTitle(title)
-                        .setContentText(String.format("%s",message))
-                        .setWhen(when)
-                        .setDefaults(Notification.DEFAULT_VIBRATE | Notification.DEFAULT_SOUND);
+        NotificationManager mNotificationManager = (NotificationManager)getApplicationContext(). getSystemService(Context.NOTIFICATION_SERVICE);
+        mNotificationManager.notify(mNotificationId, mBuilder.build());
 
-       /* Intent resultIntent = new Intent(this, DrawerActivity.class);
-        resultIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
-
-        PendingIntent resultPendingIntent = PendingIntent.getActivity(this, 0, resultIntent, PendingIntent.FLAG_UPDATE_CURRENT);
-        mBuilder.setContentIntent(resultPendingIntent);*/
-        notificationManager.notify(m, mBuilder.build());
     }
 }
