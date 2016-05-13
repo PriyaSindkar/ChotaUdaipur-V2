@@ -1,7 +1,6 @@
 package com.webmyne.base.base.api;
 
-import com.webmyne.base.base.model.RegRequest;
-import com.webmyne.base.base.model.RegResponse;
+import com.webmyne.base.base.model.Regrequest;
 import com.webmyne.base.base.model.RegisterResponse;
 import com.webmyne.base.utils.Conts;
 
@@ -18,5 +17,5 @@ public interface RegisterApi {
     // Call<AboutUsResp> getResp();
     //
     @POST(Conts.REGISTER_URL)
-    Call<RegisterResponse> callRegisterDevice(@Body RegRequest registerRequest);
+    Call<RegisterResponse> callRegisterDevice(@Body Regrequest registerRequest);
 }

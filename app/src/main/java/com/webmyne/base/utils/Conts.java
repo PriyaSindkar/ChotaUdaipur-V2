@@ -11,7 +11,7 @@ public class Conts {
     //http://dreamsdesign.us/CUSevaSadan_Ws/
     //http://ws-srv-net.in.webmyne.com/Applications/CUSevaSadan/CUSevaSadan_WS/Service.svc/
 
-    final public static String  LOCAL_PATH = "http://ws-srv-net.in.webmyne.com/Applications/dreamsdesign.us/CUSevaSadan_WS/Service.svc/";
+    final public static String  LOCAL_PATH = "http://ws-srv-net.in.webmyne.com/Applications/CUSevaSadan/CUSevaSadan_WS/Service.svc/";
     final public static  String LIVE_PATH="http://aapnuchhotaudepur.com/CUSevaSadan_WS/Service.svc/";
     final public static  String BASE_URL=LOCAL_PATH;
 

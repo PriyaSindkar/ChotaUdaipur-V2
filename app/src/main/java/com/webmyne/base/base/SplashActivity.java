@@ -1,9 +1,6 @@
 package com.webmyne.base.base;
 
 import android.app.ProgressDialog;
-import android.content.Context;
-import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
@@ -14,11 +11,8 @@ import android.widget.Toast;
 
 import com.google.android.gms.gcm.GoogleCloudMessaging;
 import com.webmyne.R;
-import com.webmyne.base.base.MainActivity;
 import com.webmyne.base.base.api.RegisterApi;
-import com.webmyne.base.base.model.RegRequest;
-import com.webmyne.base.base.model.RegResponse;
-import com.webmyne.base.base.model.RegisterDeviceResult;
+import com.webmyne.base.base.model.Regrequest;
 import com.webmyne.base.base.model.RegisterResponse;
 import com.webmyne.base.utils.Functions;
 
@@ -129,7 +123,7 @@ public class SplashActivity extends AppCompatActivity {
         String deviceId = easyDeviceInfo.getAndroidID();
         String model = easyDeviceInfo.getModel();
         try {
-            final RegRequest registerRequest = new RegRequest(deviceId, model, GCM_ID, "A");
+            final Regrequest registerRequest = new Regrequest(deviceId, model, GCM_ID, "A");
             RegisterApi service = MyApplication.retrofit.create(RegisterApi.class);
             Call<RegisterResponse> call = service.callRegisterDevice(registerRequest);
             call.enqueue(new Callback<RegisterResponse>() {
