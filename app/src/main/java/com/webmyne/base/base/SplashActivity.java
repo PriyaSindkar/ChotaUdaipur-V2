@@ -130,8 +130,7 @@ public class SplashActivity extends AppCompatActivity {
                 @Override
                 public void onResponse(Call<RegisterResponse> call, Response<RegisterResponse> response) {
 
-                    Toast.makeText(SplashActivity.this, ""+response.body(), Toast.LENGTH_SHORT).show();
-                    Log.e("resp",response.body() +"");
+                    Log.e("resp",response.body().RegisterDeviceResult.ResponseCode +"");
                 }
 
                 @Override

@@ -13,9 +13,6 @@ import retrofit2.http.POST;
  */
 public interface RegisterApi {
 
-    //here is the other url part.best way is to start using /
-    // Call<AboutUsResp> getResp();
-    //
     @POST(Conts.REGISTER_URL)
     Call<RegisterResponse> callRegisterDevice(@Body Regrequest registerRequest);
 }
