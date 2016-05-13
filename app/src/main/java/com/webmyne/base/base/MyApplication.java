@@ -21,7 +21,7 @@ public class MyApplication extends Application {
         super.onCreate();
         sInstance = this;
         retrofit = new Retrofit.Builder()
-                .baseUrl(Conts.LIVE_PATH)
+                .baseUrl(Conts.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
     }

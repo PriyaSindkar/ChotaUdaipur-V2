@@ -13,9 +13,7 @@ public class Conts {
 
     final public static String  LOCAL_PATH = "http://ws-srv-net.in.webmyne.com/Applications/dreamsdesign.us/CUSevaSadan_WS/Service.svc/";
     final public static  String LIVE_PATH="http://aapnuchhotaudepur.com/CUSevaSadan_WS/Service.svc/";
-
-
-    final public static  String BASE_URL=LIVE_PATH;
+    final public static  String BASE_URL=LOCAL_PATH;
 
     final public static  String ABOUT_US_URL="json/AboutUS";
     final public static  String ACHIVEMENT_URL="json/Achievement";
@@ -28,5 +26,8 @@ public class Conts {
     final public static  String FETCH_COMPLAINT_INFO_URL="json/FetchComplainInfo";
     final public static  String POST_COMPLAINT_URL="json/ComplainRegister";
     final public static  String TENDER_URL="json/Tender";
+    final public static  String REGISTER_URL="json/RegisterDevice";
+
+
 
 }

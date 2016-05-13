@@ -3,43 +3,47 @@ package com.webmyne.base.utils;
 import android.app.Activity;
 import android.app.DownloadManager;
 import android.content.Context;
-import android.graphics.Bitmap;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
-import android.graphics.BitmapFactory;
+import android.graphics.Bitmap;
 import android.graphics.Matrix;
 import android.graphics.Typeface;
-import android.media.ThumbnailUtils;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.os.Environment;
-import android.util.Base64;
 import android.net.Uri;
 import android.os.Build;
+import android.os.Environment;
+import android.util.Base64;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Display;
 import android.view.WindowManager;
 import android.widget.Toast;
 
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.gson.GsonBuilder;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import java.util.List;
 
 /**
  * Created by priyasindkar on 21-03-2016.
  */
 public class Functions {
+
+    static SharedPreferences preferences;
+
+    static SharedPreferences.Editor editor;
+
+
+    public static String fontFamilyPathThin = "font/shruti.ttf";
+
     public static DisplayMetrics getDeviceMetrics(Activity context) {
         DisplayMetrics metrics = new DisplayMetrics();
         WindowManager wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
@@ -48,8 +52,35 @@ public class Functions {
         return metrics;
     }
 
-    public static String fontFamilyPathThin = "font/shruti.ttf";
+    // set SharePrefernce
+    public static void setPrefs(Context context) {
+        preferences = context.getSharedPreferences("Prefs", Context.MODE_PRIVATE);
+        editor = preferences.edit();
+    }
 
+    // set Is_REG
+    public static void setIsRegister(boolean value) {
+       editor.putBoolean("IS_REG",value);
+        editor.apply();
+    }
+
+    // get Is_REG
+    public static boolean getIsRegister() {
+        return preferences.getBoolean("IS_REG",false);
+    }
+
+
+    // check GooglePlayService Availablity
+    public static boolean isGooglePlayServiceAvailable(Context mContext) {
+        boolean flag = false;
+        int status = GooglePlayServicesUtil.isGooglePlayServicesAvailable(mContext.getApplicationContext());
+        if (status == ConnectionResult.SUCCESS) {
+            flag = true;
+        } else {
+            flag = false;
+        }
+        return flag;
+    }
     public static Typeface getTypeFace(Context ctx) {
         Typeface typeface = Typeface.createFromAsset(ctx.getAssets(), fontFamilyPathThin);
         return typeface;
@@ -72,8 +103,7 @@ public class Functions {
         return haveConnectedWifi || haveConnectedMobile;
     }
 
-    public static boolean emailValidator(String email)
-    {
+    public static boolean emailValidator(String email) {
         Pattern pattern;
         Matcher matcher;
         final String EMAIL_PATTERN =
@@ -101,13 +131,9 @@ public class Functions {
         return resizedBitmap;
     }
 
-
-
-
-
     public static String returnBas64Image(Bitmap thumbnail1) {
 
-        Bitmap thumbnail =  getResizedBitmap(thumbnail1,540,960);
+        Bitmap thumbnail = getResizedBitmap(thumbnail1, 540, 960);
 
         //complete code to save image on server
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -117,18 +143,18 @@ public class Functions {
         return encodedImage;
     }
 
-    public static void downloadFile(Context context, String DownloadUrl,String name) {
+    public static void downloadFile(Context context, String DownloadUrl, String name) {
         // String DownloadUrl = mData.get();
         if (haveNetworkConnection((Activity) context)) {
             File dir = new File(Environment.getExternalStorageDirectory()
                     + "/ChhotaUdepur");
-            if(dir.exists() == false){
+            if (dir.exists() == false) {
                 dir.mkdirs();
             }
 
-            Log.e("### DownloadUrl",DownloadUrl);
-            String s = DownloadUrl.replaceAll(" " , "%20");
-             Uri link = Uri.parse(s);
+            Log.e("### DownloadUrl", DownloadUrl);
+            String s = DownloadUrl.replaceAll(" ", "%20");
+            Uri link = Uri.parse(s);
 
             DownloadManager.Request request = new DownloadManager.Request(link);
             request.setDescription("download file ");   //appears the same in Notification bar while downloading
@@ -142,10 +168,8 @@ public class Functions {
             // get download service and enqueue file
             DownloadManager manager = (DownloadManager) context.getSystemService(Context.DOWNLOAD_SERVICE);
             manager.enqueue(request);
-        }
-        else
-        {
-            Toast.makeText(context,"Check Internet Connection",Toast.LENGTH_LONG).show();
+        } else {
+            Toast.makeText(context, "Check Internet Connection", Toast.LENGTH_LONG).show();
         }
     }
 
@@ -162,12 +186,12 @@ public class Functions {
                     PackageManager.MATCH_DEFAULT_ONLY);
             return list.size() > 0;
         } catch (Exception e) {
-            Log.e("### EXc",e.toString());
+            Log.e("### EXc", e.toString());
             return false;
         }
     }
 
-    public static String jsonString(Object obj){
+    public static String jsonString(Object obj) {
         return "" + new GsonBuilder().create().toJson(obj).toString();
     }
 }

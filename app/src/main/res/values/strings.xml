@@ -76,4 +76,10 @@
     <string name="yes">YES</string>
     <string name="no">NO</string>
     <string name="alert_msg">Are you sure want to call this Number?</string>
+
+    <!--// GCM PROJECT ID-->
+    <string name="project_id">394712556203</string>
+    <string name="gcm_error">Google Services Not Found. Please Install/Update It</string>
+    <string name="google_app_id">394712556203</string>
+
 </resources>
