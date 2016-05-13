@@ -82,4 +82,6 @@
     <string name="gcm_error">Google Services Not Found. Please Install/Update It</string>
     <string name="google_app_id">394712556203</string>
 
+    <string name="dialog_wait">Please Wait while connecting to ChhotaUdepur</string>
+    <string name="dialog_CheckInternet">Please check Internet connection</string>
 </resources>

@@ -37,9 +37,9 @@ import java.util.regex.Pattern;
  */
 public class Functions {
 
-    static SharedPreferences preferences;
+    public static SharedPreferences preferences;
 
-    static SharedPreferences.Editor editor;
+    public static SharedPreferences.Editor editor;
 
 
     public static String fontFamilyPathThin = "font/shruti.ttf";
