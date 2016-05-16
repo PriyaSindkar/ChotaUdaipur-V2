@@ -1,0 +1,35 @@
+{
+  "project_info": {
+    "project_number": "394712556203",
+    "project_id": "cusevasadan"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:394712556203:android:526f2ea83fe97722",
+        "android_client_info": {
+          "package_name": "com.webmyne"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB0WYRPohzb-ATCrLdGVT6yU_fJmMKceYM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

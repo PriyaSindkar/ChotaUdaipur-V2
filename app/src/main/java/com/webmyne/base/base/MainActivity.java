@@ -1,8 +1,9 @@
 package com.webmyne.base.base;
 
+import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
@@ -14,12 +15,12 @@ import android.view.Display;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.ImageView;
 
 import com.webmyne.R;
 import com.webmyne.base.AboutUs.About_UsActivity;
 import com.webmyne.base.Achievement.Achievement_Activity;
-import com.webmyne.base.Complain.ComplainRegisterActivity;
 import com.webmyne.base.Complain.Complaint_statusActivity;
 import com.webmyne.base.HelpLine.HelpLineActivity;
 import com.webmyne.base.Tender.TenderActivity;
@@ -29,8 +30,9 @@ import com.webmyne.base.listeners.OnItemSelected;
 import com.webmyne.base.management.ManagementActivity;
 import com.webmyne.base.news.NewsActivity;
 import com.webmyne.base.touristSpots.TouristSpotsActivity;
-import com.webmyne.base.touristSpots.adapter.TouristSpotsAdapter;
-
+import com.webmyne.base.touristSpots.model.TouristResult;
+import com.webmyne.base.touristSpots.ui.InfoDialog;
+import com.webmyne.base.utils.Functions;
 
 import java.util.ArrayList;
 
@@ -58,6 +60,48 @@ public class MainActivity extends AppCompatActivity {
 
     private void init() {
         setdata();
+        // if come from notification then shoe dialog
+       /* Bundle extras = getIntent().getExtras();
+
+        if(extras != null){
+            Log.e("extras in Main",getIntent().getExtras().toString());
+            if(extras.containsKey("Message"))
+            {
+                TouristResult result=new TouristResult();
+                Log.e("Message in Main",getIntent().getStringExtra("Message"));
+                result.Description=getIntent().getStringExtra("Message");
+                InfoDialog infoDialog = new InfoDialog(this, R.style.CustomAlertDialogStyle, result);
+                WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+                lp.copyFrom(infoDialog.getWindow().getAttributes());
+                //lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+                lp.width = (int) (Functions.getDeviceMetrics((Activity) this).widthPixels * 0.8);
+                lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
+
+                // infoDialog.getWindow().getAttributes().width = (int) (Functions.getDeviceMetrics((Activity) mContext).widthPixels * 0.8);
+                // infoDialog.getWindow().setLayout((int) (Functions.getDeviceMetrics((Activity) mContext).widthPixels * 0.8), Window.FEATURE_PROGRESS );
+                infoDialog.show();
+                infoDialog.getWindow().setAttributes(lp);
+            }
+        }
+*/
+        if(getIntent().getStringExtra("Message")!=null)
+        {
+            TouristResult result=new TouristResult();
+            Log.e("Message in Main",getIntent().getStringExtra("Message"));
+            result.Description=getIntent().getStringExtra("Message");
+            InfoDialog infoDialog = new InfoDialog(this, R.style.CustomAlertDialogStyle, result);
+            WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+            lp.copyFrom(infoDialog.getWindow().getAttributes());
+            //lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+            lp.width = (int) (Functions.getDeviceMetrics((Activity) this).widthPixels * 0.8);
+            lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
+
+            // infoDialog.getWindow().getAttributes().width = (int) (Functions.getDeviceMetrics((Activity) mContext).widthPixels * 0.8);
+            // infoDialog.getWindow().setLayout((int) (Functions.getDeviceMetrics((Activity) mContext).widthPixels * 0.8), Window.FEATURE_PROGRESS );
+            infoDialog.show();
+            infoDialog.getWindow().setAttributes(lp);
+           }
+
         mAdapter = new MyRecyclerViewAdapter(this, menu, menuicon, menubgcolor, (getHeight() / 4));
         mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         //RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());

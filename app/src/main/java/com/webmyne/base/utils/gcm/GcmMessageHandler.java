@@ -27,6 +27,7 @@ public class GcmMessageHandler extends IntentService {
     public static final int NOTIFICATION_ID = 1;
     private NotificationManager mNotificationManager;
     NotificationCompat.Builder builder;
+    private static final Random random = new Random();
 
     public GcmMessageHandler() {
         super("GcmIntentService");
@@ -78,26 +79,29 @@ public class GcmMessageHandler extends IntentService {
     // a GCM message.
     private void sendNotification(String message) {
 
-        Log.e("message", message);
+        Log.e("message in handler", message);
 
         int icon = R.mipmap.logo;
         long when = System.currentTimeMillis();
         String title = this.getString(R.string.app_name);
         int mNotificationId = 101;
 
-
+        Intent intent=new Intent(getApplicationContext(), MainActivity.class);
+        intent.putExtra("Message",message);
+        int uniqueInt = (int) (System.currentTimeMillis() & 0xfffffff);
         PendingIntent contentIntent = PendingIntent.getActivity(getApplicationContext(),
-                0,new Intent(getApplicationContext(), MainActivity.class), 0);
+                uniqueInt,intent,  PendingIntent.FLAG_UPDATE_CURRENT);
         android.support.v7.app.NotificationCompat.Builder  mBuilder =
                 new android.support.v7.app.NotificationCompat.Builder(getApplicationContext());
         mBuilder.setContentTitle(title);
         mBuilder.setContentText(String.format("%s",message));
         mBuilder.setSmallIcon(icon);
+        mBuilder.setAutoCancel(true);
         mBuilder.setContentIntent(contentIntent);
         mBuilder.setDefaults(Notification.DEFAULT_VIBRATE | Notification.DEFAULT_SOUND);
 
         NotificationManager mNotificationManager = (NotificationManager)getApplicationContext(). getSystemService(Context.NOTIFICATION_SERVICE);
-        mNotificationManager.notify(mNotificationId, mBuilder.build());
+        mNotificationManager.notify(0, mBuilder.build());
 
     }
 }
