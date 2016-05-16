@@ -44,9 +44,9 @@ public class SplashActivity extends AppCompatActivity {
         dialog = new ProgressDialog(this);
         dialog.setCancelable(false);
 
-        ProgressBar v = (ProgressBar) findViewById(R.id.progressBar);
+       /* ProgressBar v = (ProgressBar) findViewById(R.id.progressBar);
         v.getIndeterminateDrawable().setColorFilter(0xFFFFFFFF,
-                android.graphics.PorterDuff.Mode.MULTIPLY);
+                android.graphics.PorterDuff.Mode.MULTIPLY);*/
 
         Functions.setPrefs(this);
         if (Functions.preferences.getBoolean("IS_REG", false)) {

@@ -12,7 +12,7 @@
         android:background="@drawable/splash_screen"
         android:scaleType="centerInside" />
 
-    <ProgressBar
+   <!-- <ProgressBar
         android:id="@+id/progressBar"
         style="?android:attr/progressBarStyle"
         android:layout_width="wrap_content"
@@ -21,6 +21,6 @@
         android:layout_centerHorizontal="true"
         android:layout_gravity="center_vertical|center_horizontal"
         android:layout_marginBottom="16dp" />
-
+-->
 
 </RelativeLayout>
