@@ -3,7 +3,7 @@ package com.webmyne.base.base;
 import android.app.Application;
 import android.content.Context;
 import android.graphics.Typeface;
-import android.support.multidex.MultiDexApplication;
+
 
 import com.webmyne.base.utils.Conts;
 
@@ -13,7 +13,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 /**
  * Created by vaibhavirana on 23-03-2016.
  */
-public class MyApplication extends MultiDexApplication {
+public class MyApplication extends Application {
     public static Retrofit retrofit;
     private static MyApplication sInstance;
 
